@@ -34,9 +34,7 @@ body {
 }
 
 .pictogram {
-  margin: 8px;
   cursor: pointer;
-  height: 10vw;
 }
 
 .pictogram img {
@@ -47,26 +45,8 @@ body {
 }
 
 .pictogram img:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.pictogram-portrait {
-  margin: 8px;
-  cursor: pointer;
-  height: 15vw;
-}
-
-.pictogram-portrait img {
-  -webkit-transition: -webkit-transform 500ms ease;
-  transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
-  transition: transform 500ms ease, -webkit-transform 500ms ease;
-}
-
-.pictogram-portrait img:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .pictogramZoom {

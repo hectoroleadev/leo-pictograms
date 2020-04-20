@@ -4,7 +4,7 @@ import PictogramComponent from './PictogramComponent';
 class ColorListComponent extends Component {
   render() {
     return (
-      <div className='rounded-lg text-center mr-1' style={this.props.color}>
+      <div className='rounded-lg text-center mr-2' style={this.props.color}>
         {this.props.data.map(data => {
           return (
             <PictogramComponent

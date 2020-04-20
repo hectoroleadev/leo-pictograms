@@ -12,8 +12,8 @@ class DashboardComponent extends Component {
 
     this.state = {
       srcImage: '',
-      imageBorderColor: null,
-      isImageDiplayed: false
+      isImageDiplayed: false,
+      customStyleImage: {}
     };
     // Bind properties to class instance
     this._hideImageHandler = this._hideImageHandler.bind(this);
@@ -30,10 +30,17 @@ class DashboardComponent extends Component {
   }
 
   _displayImageHandler(srcImage, imageBorderColor) {
+    let border = `10px solid ${imageBorderColor}`;
+    let img = new Image();
+    img.src = srcImage;
+
+    let customStyleImage =
+      img.width > img.height ? landscapeStyle(border) : portraitStyle(border);
+
     this.setState({
       srcImage,
-      imageBorderColor,
-      isImageDiplayed: true
+      isImageDiplayed: true,
+      customStyleImage
     });
   }
 
@@ -55,26 +62,17 @@ class DashboardComponent extends Component {
   }
 
   render() {
-    let customImage = {};
-
-    if (this.state.isImageDiplayed) {
-      let img = new Image();
-      let border = `10px solid ${this.state.imageBorderColor}`;
-      img.src = this.state.srcImage;
-      customImage =
-        img.width > img.height ? landscapeStyle(border) : portraitStyle(border);
-    }
-
     return (
       <div>
         {this.state.isImageDiplayed && (
-          <img
-            src={this.state.srcImage}
-            onClick={this._hideImageHandler}
-            className='pictogramZoom position-absolute rounded-lg img-fluid shadow'
-            alt={'pictogramZoom'}
-            style={customImage}
-          />
+          <div className='pictogramZoom position-absolute img-fluid shadow rounded-lg'>
+            <img
+              src={this.state.srcImage}
+              onClick={this._hideImageHandler}
+              alt={'pictogramZoom'}
+              style={this.state.customStyleImage}
+            />
+          </div>
         )}
         <div className='row justify-content-md-center'>
           {this._createColorList(createData('objeto'), paleteColors.orange)}

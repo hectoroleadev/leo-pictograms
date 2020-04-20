@@ -4,7 +4,9 @@ class PictogramComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mouseOver: false
+      mouseOver: false,
+      customImage: {},
+      isLandscape: false
     };
 
     this._clickHandler = this._clickHandler.bind(this);
@@ -24,7 +26,7 @@ class PictogramComponent extends Component {
     e.preventDefault();
     if (this.state.mouseOver === true) {
       this.setState({
-        mouseOver: false
+        mouseOver: true
       });
     }
   }
@@ -33,7 +35,7 @@ class PictogramComponent extends Component {
     this.props.displayImage(this.props.data.image, this.props.colorList);
   }
 
-  render() {
+  componentDidMount() {
     // Modify styles based on state values
     let customImage = {};
 
@@ -42,30 +44,33 @@ class PictogramComponent extends Component {
     let isLandscape = img.width > img.height ? true : false;
     customImage = isLandscape
       ? {
-          width: '15vw',
-          height: '10vw'
+          width: '12vw',
+          height: '8vw'
         }
       : {
-          width: '10vw',
-          height: '15vw'
+          width: '8vw',
+          height: '12vw'
         };
 
+    console.log(isLandscape);
+
+    this.setState({
+      customImage,
+      isLandscape
+    });
+  }
+
+  render() {
     return (
-      <div
-        className={
-          isLandscape
-            ? 'overflow-hidden pictogram'
-            : 'overflow-hidden pictogram-portrait'
-        }
-      >
+      <div className='overflow-hidden p-2 pictogram'>
         <img
           onMouseEnter={this._mouseEnter}
           onMouseLeave={this._mouseLeave}
           onClick={this._clickHandler}
           src={this.props.data.image}
           alt={this.props.data.name}
-          className='img-fluid rounded-lg img-thumbnail'
-          style={customImage}
+          className='img-thumbnail'
+          style={this.state.customImage}
         />
       </div>
     );
