@@ -27,7 +27,7 @@ class PictogramComponent extends Component {
       return;
     }
 
-    this.props.displayImageHandler(
+    this.props.displayImageZoomedHandler(
       this.props.data.image,
       this.props.backgroundColor
     );
@@ -59,12 +59,12 @@ class PictogramComponent extends Component {
 
   render() {
     return (
-      <div className='overflow-hidden p-2 pictogram'>
+      <div className='overflow-hidden p-2'>
         <img
           onClick={this.clickHandler}
           src={this.state.image}
           alt={this.props.data.name}
-          className='img-thumbnail'
+          className='img-thumbnail pictogram'
           style={this.state.customImage}
           onLoad={this.handleImageLoaded}
           onError={this.handleImageErrored}

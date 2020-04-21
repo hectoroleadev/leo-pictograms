@@ -33,18 +33,15 @@ body {
   font-size: 18px;
 }
 
-.pictogram {
-  cursor: pointer;
-}
-
-.pictogram img {
+.pictogram  {
   -webkit-transition: -webkit-transform 500ms ease;
   transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
   transition: transform 500ms ease, -webkit-transform 500ms ease;
+  cursor: pointer;
 }
 
-.pictogram img:hover {
+.pictogram:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
@@ -54,4 +51,5 @@ body {
   left: 50%;
   transform: none;
   z-index: 1;
+  cursor: pointer;
 }
