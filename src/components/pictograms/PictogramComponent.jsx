@@ -1,62 +1,59 @@
 import React, { Component } from 'react';
+import {
+  landscapeThumbnailStyle,
+  portraitThumbnailStyle,
+  noImage
+} from '../../utils/Constants';
 
 class PictogramComponent extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      mouseOver: false,
-      customImage: {},
-      isLandscape: false
+      customImage: landscapeThumbnailStyle,
+      image: this.props.data.image,
+      isImageLoaded: false
     };
 
-    this._clickHandler = this._clickHandler.bind(this);
-    this._mouseEnter = this._mouseEnter.bind(this);
-    this._mouseLeave = this._mouseLeave.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
+    this.handleImageLoaded = this.handleImageLoaded.bind(this);
+    this.handleImageErrored = this.handleImageErrored.bind(this);
   }
 
-  _mouseEnter(e) {
+  clickHandler(e) {
     e.preventDefault();
-    if (this.state.mouseOver === false) {
-      this.setState({
-        mouseOver: true
-      });
+
+    if (this.state.image === noImage || this.props.isImageDiplayed) {
+      return;
     }
+
+    this.props.displayImageHandler(
+      this.props.data.image,
+      this.props.backgroundColor
+    );
   }
-  _mouseLeave(e) {
-    e.preventDefault();
-    if (this.state.mouseOver === true) {
-      this.setState({
-        mouseOver: true
-      });
+
+  handleImageLoaded() {
+    let customImage = landscapeThumbnailStyle;
+
+    if (this.state.image !== noImage) {
+      let img = new Image();
+      img.src = this.props.data.image;
+      let isLandscape = img.width > img.height ? true : false;
+
+      customImage = isLandscape
+        ? landscapeThumbnailStyle
+        : portraitThumbnailStyle;
     }
-  }
-  _clickHandler(e) {
-    e.preventDefault();
-    this.props.displayImage(this.props.data.image, this.props.colorList);
+
+    this.setState({ isImageLoaded: true, customImage });
   }
 
-  componentDidMount() {
-    // Modify styles based on state values
-    let customImage = {};
-
-    let img = new Image();
-    img.src = this.props.data.image;
-    let isLandscape = img.width > img.height ? true : false;
-    customImage = isLandscape
-      ? {
-          width: '12vw',
-          height: '8vw'
-        }
-      : {
-          width: '8vw',
-          height: '12vw'
-        };
-
-    console.log(isLandscape);
-
+  handleImageErrored() {
     this.setState({
-      customImage,
-      isLandscape
+      image: noImage,
+      isImageLoaded: false,
+      customImage: landscapeThumbnailStyle
     });
   }
 
@@ -64,13 +61,13 @@ class PictogramComponent extends Component {
     return (
       <div className='overflow-hidden p-2 pictogram'>
         <img
-          onMouseEnter={this._mouseEnter}
-          onMouseLeave={this._mouseLeave}
-          onClick={this._clickHandler}
-          src={this.props.data.image}
+          onClick={this.clickHandler}
+          src={this.state.image}
           alt={this.props.data.name}
           className='img-thumbnail'
           style={this.state.customImage}
+          onLoad={this.handleImageLoaded}
+          onError={this.handleImageErrored}
         />
       </div>
     );

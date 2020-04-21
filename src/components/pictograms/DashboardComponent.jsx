@@ -16,12 +16,12 @@ class DashboardComponent extends Component {
       customStyleImage: {}
     };
     // Bind properties to class instance
-    this._hideImageHandler = this._hideImageHandler.bind(this);
-    this._displayImageHandler = this._displayImageHandler.bind(this);
-    this._createColorList = this._createColorList.bind(this);
+    this.hideImageHandler = this.hideImageHandler.bind(this);
+    this.displayImageHandler = this.displayImageHandler.bind(this);
+    this.createColorList = this.createColorList.bind(this);
   }
 
-  _hideImageHandler(e) {
+  hideImageHandler(e) {
     e.preventDefault();
 
     this.setState({
@@ -29,7 +29,7 @@ class DashboardComponent extends Component {
     });
   }
 
-  _displayImageHandler(srcImage, imageBorderColor) {
+  displayImageHandler(srcImage, imageBorderColor) {
     let border = `10px solid ${imageBorderColor}`;
     let img = new Image();
     img.src = srcImage;
@@ -44,18 +44,15 @@ class DashboardComponent extends Component {
     });
   }
 
-  _createColorList(data, color) {
+  createColorList(datas, color) {
     return (
       <div className='d-flex justify-content-center'>
         <ColorListComponent
-          data={data}
-          color={{
-            backgroundColor: color,
-            filter: this.state.isImageDiplayed
-              ? 'blur(2px) opacity(.3)'
-              : 'none'
-          }}
-          displayImageHandler={this._displayImageHandler}
+          datas={datas}
+          backgroundColor={color}
+          filter={this.state.isImageDiplayed ? 'blur(2px) opacity(.3)' : 'none'}
+          displayImageHandler={this.displayImageHandler}
+          isImageDiplayed={this.state.isImageDiplayed}
         />
       </div>
     );
@@ -68,19 +65,19 @@ class DashboardComponent extends Component {
           <div className='pictogramZoom position-absolute img-fluid shadow rounded-lg'>
             <img
               src={this.state.srcImage}
-              onClick={this._hideImageHandler}
+              onClick={this.hideImageHandler}
               alt={'pictogramZoom'}
               style={this.state.customStyleImage}
             />
           </div>
         )}
         <div className='row justify-content-md-center'>
-          {this._createColorList(createData('objeto'), paleteColors.orange)}
-          {this._createColorList(createData('verbo'), paleteColors.green)}
-          {this._createColorList(createData('persona'), paleteColors.yellow)}
-          {this._createColorList(createData('comida'), paleteColors.red)}
-          {this._createColorList(createData('actividad'), paleteColors.blue)}
-          {this._createColorList(createData('social'), paleteColors.purple)}
+          {this.createColorList(createData('objeto'), paleteColors.orange)}
+          {this.createColorList(createData('verbo'), paleteColors.green)}
+          {this.createColorList(createData('persona'), paleteColors.yellow)}
+          {this.createColorList(createData('comida'), paleteColors.red)}
+          {this.createColorList(createData('actividad'), paleteColors.blue)}
+          {this.createColorList(createData('social'), paleteColors.purple)}
         </div>
       </div>
     );

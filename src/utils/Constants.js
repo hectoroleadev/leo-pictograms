@@ -1,6 +1,8 @@
 const initSufix = 1;
 const endSufix = 8;
 
+export const noImage = `${process.env.PUBLIC_URL}/images/pictograms/no-img.png`;
+
 export const paleteColors = {
   green: '#8ae800',
   yellow: '#faf100',
@@ -28,6 +30,16 @@ export const portraitStyle = border => {
     marginLeft: '-15vw',
     border
   };
+};
+
+export const landscapeThumbnailStyle = {
+  width: '12vw',
+  height: '8vw'
+};
+
+export const portraitThumbnailStyle = {
+  width: '8vw',
+  height: '12vw'
 };
 
 export const createData = prefix => {
