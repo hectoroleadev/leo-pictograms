@@ -12,18 +12,19 @@ class PictogramZoomedComponent extends Component {
   }
 
   render() {
+    const showHideClassName = this.props.isImageDiplayed
+      ? 'modal d-block'
+      : 'modal d-none';
+
     return (
-      <div>
-        {this.props.isImageDiplayed && (
-          <div className='pictogramZoom position-fixed img-fluid shadow rounded-lg'>
-            <img
-              src={this.props.srcImage}
-              alt={'pictogramZoom'}
-              style={this.props.customStyleImage}
-              onClick={this.hideImageHandler}
-            />
-          </div>
-        )}
+      <div className={showHideClassName} onClick={this.hideImageHandler}>
+        <img
+          className='pictogramZoom shadow-md rounded-lg'
+          alt={'pictogramZoom'}
+          src={this.props.srcImage}
+          style={this.props.customStyleImage}
+          onClick={this.hideImageHandler}
+        />
       </div>
     );
   }

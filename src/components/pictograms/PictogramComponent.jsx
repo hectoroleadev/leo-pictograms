@@ -23,30 +23,41 @@ class PictogramComponent extends Component {
   clickHandler(e) {
     e.preventDefault();
 
-    if (this.state.image === noImage || this.props.isImageDiplayed) {
+    const {
+      displayImageZoomedHandler,
+      data,
+      classColor,
+      isImageDiplayed
+    } = this.props;
+
+    if (this.state.image === noImage || isImageDiplayed) {
       return;
     }
 
-    this.props.displayImageZoomedHandler(
-      this.props.data.image,
-      this.props.backgroundColor
-    );
+    const element = document.querySelector(`.${classColor}`);
+    const style = getComputedStyle(element);
+    const elm = document.documentElement;
+
+    elm.style.setProperty('--border-color', style.backgroundColor);
+
+    displayImageZoomedHandler(data.image);
   }
 
   handleImageLoaded() {
-    let customImage = landscapeThumbnailStyle;
+    const customThumbnailStyle = () => {
+      if (this.state.image === noImage) {
+        return landscapeThumbnailStyle;
+      }
 
-    if (this.state.image !== noImage) {
-      let img = new Image();
+      const img = new Image();
       img.src = this.props.data.image;
-      let isLandscape = img.width > img.height ? true : false;
 
-      customImage = isLandscape
+      return img.width > img.height
         ? landscapeThumbnailStyle
         : portraitThumbnailStyle;
-    }
+    };
 
-    this.setState({ isImageLoaded: true, customImage });
+    this.setState({ isImageLoaded: true, customImage: customThumbnailStyle() });
   }
 
   handleImageErrored() {

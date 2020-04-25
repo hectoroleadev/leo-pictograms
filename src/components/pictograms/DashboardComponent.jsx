@@ -3,8 +3,7 @@ import ColorListComponent from './ColorListComponent';
 import PictogramZoomedComponent from './PictogramZoomedComponent';
 import createData, {
   landscapeStyle,
-  portraitStyle,
-  paleteColors
+  portraitStyle
 } from '../../utils/Constants';
 
 class DashboardComponent extends Component {
@@ -28,27 +27,31 @@ class DashboardComponent extends Component {
     });
   }
 
-  displayImageZoomedHandler(srcImage, imageBorderColor) {
-    let border = `10px solid ${imageBorderColor}`;
-    let img = new Image();
-    img.src = srcImage;
+  displayImageZoomedHandler(srcImage) {
+    const customStyleImage = () => {
+      const img = new Image();
+      img.src = srcImage;
 
-    let customStyleImage =
-      img.width > img.height ? landscapeStyle(border) : portraitStyle(border);
+      return img.width > img.height ? landscapeStyle() : portraitStyle();
+    };
 
     this.setState({
       srcImage,
       isImageDiplayed: true,
-      customStyleImage
+      customStyleImage: customStyleImage()
     });
   }
 
-  createColorList(datas, color) {
+  createColorList(datas, classColor) {
+    const filterStyle = this.state.isImageDiplayed
+      ? 'blur(2px) opacity(.3)'
+      : 'none';
+
     return (
       <ColorListComponent
         datas={datas}
-        backgroundColor={color}
-        filter={this.state.isImageDiplayed ? 'blur(2px) opacity(.3)' : 'none'}
+        classColor={classColor}
+        filter={filterStyle}
         displayImageZoomedHandler={this.displayImageZoomedHandler}
         isImageDiplayed={this.state.isImageDiplayed}
       />
@@ -57,18 +60,19 @@ class DashboardComponent extends Component {
 
   render() {
     return (
-      <div className='row justify-content-md-center'>
+      <div className='row justify-content-center'>
         <PictogramZoomedComponent
-          {...this.state}
+          customStyleImage={this.state.customStyleImage}
+          srcImage={this.state.srcImage}
+          isImageDiplayed={this.state.isImageDiplayed}
           hideImageZoomedHandler={this.hideImageZoomedHandler}
         />
-
-        {this.createColorList(createData('objeto'), paleteColors.orange)}
-        {this.createColorList(createData('verbo'), paleteColors.green)}
-        {this.createColorList(createData('persona'), paleteColors.yellow)}
-        {this.createColorList(createData('comida'), paleteColors.red)}
-        {this.createColorList(createData('actividad'), paleteColors.blue)}
-        {this.createColorList(createData('social'), paleteColors.purple)}
+        {this.createColorList(createData('objeto'), 'orangeColor')}
+        {this.createColorList(createData('verbo'), 'greenColor')}
+        {this.createColorList(createData('persona'), 'yellowColor')}
+        {this.createColorList(createData('comida'), 'redColor')}
+        {this.createColorList(createData('actividad'), 'blueColor')}
+        {this.createColorList(createData('social'), 'purpleColor')}
       </div>
     );
   }
