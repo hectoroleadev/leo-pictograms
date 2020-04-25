@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DashboardComponent from './pictograms/DashboardComponent';
+import DashboardComponent from './DashboardComponent';
 import FooterComponent from './FooterComponent';
 import HeaderComponent from './HeaderComponent';
 

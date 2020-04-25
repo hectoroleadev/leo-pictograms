@@ -11,10 +11,6 @@ html {
   --border-color : white
 }
 
-/* Redefine our color variables if the data-theme attr
-  value is "dark
-*/
-
 html[data-theme="dark"] {
   --primary-color: #282c34;
   --secondary-color: #fff;
@@ -85,6 +81,16 @@ body {
   z-index: 1;
   cursor: pointer;
   border: 10px solid var(--border-color);
+}
+
+.pictogramZoom {
+  animation-name: zoom;
+  animation-duration: .3s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.1)}
+  to {transform: scale(1)}
 }
 
 .orangeColor{
@@ -162,7 +168,6 @@ input:checked+.slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
