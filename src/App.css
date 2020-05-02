@@ -8,10 +8,10 @@ html {
   --red-color: #ff0061;
   --orange-color: #ffaa00;
   --purple-color: #7734ea;
-  --border-color : white
+  --border-color: white;
 }
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   --primary-color: #282c34;
   --secondary-color: #fff;
   --modal-color: rgba(0, 0, 0, 0.5);
@@ -44,11 +44,15 @@ html[data-theme="dark"] {
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-@import "https://fonts.googleapis.com/css?family=PT+Sans:400,700";
+@import 'https://fonts.googleapis.com/css?family=PT+Sans:400,700';
 body {
   margin: 0;
   padding: 0;
@@ -60,7 +64,7 @@ body {
   color: var(--secondary-color);
 }
 
-.pictogram  {
+.pictogram {
   -webkit-transition: -webkit-transform 500ms ease;
   transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
@@ -70,11 +74,11 @@ body {
 
 .pictogram:hover {
   -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .pictogramZoom {
-  position:fixed;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: none;
@@ -85,36 +89,40 @@ body {
 
 .pictogramZoom {
   animation-name: zoom;
-  animation-duration: .3s;
+  animation-duration: 0.3s;
 }
 
 @keyframes zoom {
-  from {transform: scale(0.1)}
-  to {transform: scale(1)}
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
-.orangeColor{
+.orangeColor {
   background-color: var(--orange-color);
 }
 
-.greenColor{
-  background-color: var(--green-color)
+.greenColor {
+  background-color: var(--green-color);
 }
 
-.blueColor{
-  background-color: var(--blue-color)
+.blueColor {
+  background-color: var(--blue-color);
 }
 
-.redColor{
-  background-color: var(--red-color)
+.redColor {
+  background-color: var(--red-color);
 }
 
-.yellowColor{
-  background-color: var(--yellow-color)
+.yellowColor {
+  background-color: var(--yellow-color);
 }
 
-.purpleColor{
-  background-color: var(--purple-color)
+.purpleColor {
+  background-color: var(--purple-color);
 }
 
 .switch {
@@ -138,31 +146,31 @@ body {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-input:checked+.slider {
-  background-color: #2196F3;
+input:checked + .slider {
+  background-color: #2196f3;
 }
 
-input:focus+.slider {
-  box-shadow: 0 0 1px #2196F3;
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
