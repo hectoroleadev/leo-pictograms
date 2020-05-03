@@ -1,33 +1,43 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+import { landscapeStyle, portraitStyle } from '../../utils/Constants';
 
 class PictogramZoomedComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.hideImageHandler = this.hideImageHandler.bind(this);
-  }
-
-  hideImageHandler(e) {
-    e.preventDefault();
-    this.props.hideImageZoomedHandler();
-  }
-
   render() {
-    const showHideClassName = this.props.isImageDiplayed
-      ? 'modal d-block'
-      : 'modal d-none';
+    const { pictogramZoomed, displayImageZoomed } = this.props;
+    const customStyleImage = () => {
+      const img = new Image();
+      img.src = pictogramZoomed;
+
+      return img.width > img.height ? landscapeStyle() : portraitStyle();
+    };
 
     return (
-      <div className={showHideClassName} onClick={this.hideImageHandler}>
-        <img
-          className='pictogramZoom shadow-md rounded-lg'
-          alt={'pictogramZoom'}
-          src={this.props.srcImage}
-          style={this.props.customStyleImage}
-          onClick={this.hideImageHandler}
-        />
-      </div>
+      <>
+        {pictogramZoomed && (
+          <div
+            className='modal d-block'
+            onClick={() => displayImageZoomed(null)}
+          >
+            <img
+              className='pictogramZoom shadow-md rounded-lg'
+              alt={'pictogramZoom'}
+              src={pictogramZoomed}
+              style={customStyleImage()}
+              onClick={() => displayImageZoomed(null)}
+            />
+          </div>
+        )}
+      </>
     );
   }
 }
 
-export default PictogramZoomedComponent;
+function mapStateToProps({ pictogramZoomed }) {
+  return {
+    pictogramZoomed
+  };
+}
+
+export default connect(mapStateToProps, actions)(PictogramZoomedComponent);

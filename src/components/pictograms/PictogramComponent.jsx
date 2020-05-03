@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import {
   landscapeThumbnailStyle,
   portraitThumbnailStyle,
@@ -23,24 +25,18 @@ class PictogramComponent extends Component {
   clickHandler(e) {
     e.preventDefault();
 
-    const {
-      displayImageZoomedHandler,
-      data,
-      classColor,
-      isImageDiplayed
-    } = this.props;
-
-    if (this.state.image === noImage || isImageDiplayed) {
+    if (this.state.image === noImage) {
       return;
     }
 
+    const { data, classColor, displayImageZoomed } = this.props;
     const element = document.querySelector(`.${classColor}`);
     const style = getComputedStyle(element);
     const elm = document.documentElement;
 
     elm.style.setProperty('--border-color', style.backgroundColor);
 
-    displayImageZoomedHandler(data.image);
+    displayImageZoomed(data.image);
   }
 
   handleImageLoaded() {
@@ -85,4 +81,4 @@ class PictogramComponent extends Component {
   }
 }
 
-export default PictogramComponent;
+export default connect(null, actions)(PictogramComponent);

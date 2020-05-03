@@ -5,8 +5,7 @@ class HeaderComponent extends Component {
     super(props);
 
     this.state = {
-      checked: localStorage.getItem('theme') === 'dark' ? true : false,
-      theme: localStorage.getItem('theme')
+      checked: localStorage.getItem('theme') === 'dark' ? true : false
     };
 
     this.toggleThemeChange = this.toggleThemeChange.bind(this);
@@ -39,7 +38,7 @@ class HeaderComponent extends Component {
 
   render() {
     return (
-      <div className='d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 shadow-none'>
+      <div className='d-flex flex-column flex-md-row align-items-center p-2 px-md-4 shadow-none'>
         <h4 className='my-0 mr-md-auto font-weight-normal text-muted'>
           Leo's Pictograms
         </h4>
