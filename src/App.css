@@ -78,12 +78,6 @@ body {
 }
 
 .pictogramZoom {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: none;
-  z-index: 1;
-  cursor: pointer;
   border: 10px solid var(--border-color);
 }
 
@@ -182,4 +176,23 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media (orientation: portrait) {
+  .pictogramZoom {
+    width: 80vw;
+  }
+
+  .pictogram {
+    width: 25vw;
+  }
+}
+@media (orientation: landscape) {
+  .pictogramZoom {
+    height: 85vh;
+  }
+
+  .pictogram {
+    width: 13vw;
+  }
 }

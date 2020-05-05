@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { landscapeStyle, portraitStyle } from '../../utils/Constants';
 
 class PictogramZoomedComponent extends Component {
   render() {
     const { pictogramZoomed, displayImageZoomed } = this.props;
-    const customStyleImage = () => {
-      const img = new Image();
-      img.src = pictogramZoomed;
-
-      return img.width > img.height ? landscapeStyle() : portraitStyle();
-    };
 
     return (
       <>
         {pictogramZoomed && (
           <div
-            className='modal d-block'
+            className='d-flex justify-content-center align-items-center modal'
             onClick={() => displayImageZoomed(null)}
           >
             <img
-              className='pictogramZoom shadow-md rounded-lg'
+              className='pictogramZoom rounded-lg'
               alt={'pictogramZoom'}
               src={pictogramZoomed}
-              style={customStyleImage()}
               onClick={() => displayImageZoomed(null)}
             />
           </div>
