@@ -14,7 +14,7 @@ class PictogramZoomedComponent extends Component {
             onClick={() => displayImageZoomed(null)}
           >
             <img
-              className='pictogramZoom rounded-lg'
+              className='pictogramZoom shadow rounded-lg'
               alt={'pictogramZoom'}
               src={pictogramZoomed}
               onClick={() => displayImageZoomed(null)}
