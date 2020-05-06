@@ -1,37 +1,23 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import ColorListComponent from './ColorListComponent';
 import PictogramZoomedComponent from './PictogramZoomedComponent';
-import createData from '../../utils/Constants';
+import createData, { COLOR_LIST } from '../../utils/Constants';
 
 class DashboardComponent extends Component {
+  renderColorListComponent() {
+    return _.map(COLOR_LIST, ({ datas, classColor }) => {
+      return (
+        <ColorListComponent datas={createData(datas)} classColor={classColor} />
+      );
+    });
+  }
+
   render() {
     return (
       <div className='row justify-content-center'>
         <PictogramZoomedComponent />
-        <ColorListComponent
-          datas={createData('objeto')}
-          classColor={'orangeColor'}
-        />
-        <ColorListComponent
-          datas={createData('verbo')}
-          classColor={'greenColor'}
-        />
-        <ColorListComponent
-          datas={createData('persona')}
-          classColor={'yellowColor'}
-        />
-        <ColorListComponent
-          datas={createData('comida')}
-          classColor={'redColor'}
-        />
-        <ColorListComponent
-          datas={createData('actividad')}
-          classColor={'blueColor'}
-        />
-        <ColorListComponent
-          datas={createData('social')}
-          classColor={'purpleColor'}
-        />
+        {this.renderColorListComponent()}
       </div>
     );
   }

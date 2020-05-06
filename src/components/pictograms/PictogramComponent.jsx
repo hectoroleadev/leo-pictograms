@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { noImage } from '../../utils/Constants';
+import { NO_IMAGE } from '../../utils/Constants';
 
 class PictogramComponent extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class PictogramComponent extends Component {
   clickHandler(e) {
     e.preventDefault();
 
-    if (this.state.image === noImage) {
+    if (this.state.image === NO_IMAGE) {
       return;
     }
 
@@ -34,7 +34,7 @@ class PictogramComponent extends Component {
 
   handleImageErrored() {
     this.setState({
-      image: noImage
+      image: NO_IMAGE
     });
   }
 

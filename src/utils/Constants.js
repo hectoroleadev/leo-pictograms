@@ -2,9 +2,9 @@ const initSufix = 1;
 const endSufix = 8;
 const imagesResurces = `${process.env.PUBLIC_URL}/images/pictograms`;
 
-export const noImage = `${imagesResurces}/no-img.png`;
+export const NO_IMAGE = `${imagesResurces}/no-img.png`;
 
-export const createData = prefix => {
+export const CREATE_DATA = prefix => {
   let data = [];
 
   for (let i = initSufix; i <= endSufix; i++) {
@@ -20,4 +20,13 @@ export const createData = prefix => {
   return data;
 };
 
-export default createData;
+export const COLOR_LIST = [
+  { datas: 'objeto', classColor: 'orangeColor' },
+  { datas: 'verbo', classColor: 'greenColor' },
+  { datas: 'persona', classColor: 'yellowColor' },
+  { datas: 'comida', classColor: 'redColor' },
+  { datas: 'actividad', classColor: 'blueColor' },
+  { datas: 'social', classColor: 'purpleColor' }
+];
+
+export default CREATE_DATA;
