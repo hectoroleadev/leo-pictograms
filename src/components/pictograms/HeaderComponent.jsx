@@ -42,7 +42,7 @@ class HeaderComponent extends Component {
       <header>
         <nav className='navbar navbar-expand'>
           <a className='navbar-brand' href={`${URL_BASE}/`}>
-            <h4 className='text-muted'>Leo's Pictogramss</h4>
+            <h4 className='text-muted'>Leo's Pictograms</h4>
           </a>
           <div className='collapse navbar-collapse'>
             <ul className='navbar-nav mr-auto'>
