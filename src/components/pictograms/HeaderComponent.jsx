@@ -38,20 +38,37 @@ class HeaderComponent extends Component {
 
   render() {
     return (
-      <div className='d-flex flex-column flex-md-row align-items-center p-2 px-md-4 shadow-none'>
-        <h4 className='my-0 mr-md-auto font-weight-normal text-muted'>
-          Leo's Pictograms
-        </h4>
-        <label className='switch'>
-          <input
-            type='checkbox'
-            //checked={this.state.checked}
-            defaultChecked={this.state.checked}
-            onChange={this.toggleThemeChange}
-          />
-          <span className='slider round' />
-        </label>
-      </div>
+      <header>
+        <nav className='navbar navbar-expand'>
+          <a className='navbar-brand' href='/'>
+            <h4 className='text-muted'>Leo's Pictograms </h4>
+          </a>
+          <div className='collapse navbar-collapse'>
+            <ul className='navbar-nav mr-auto'>
+              <li className='nav-item active'>
+                <a className='nav-link text-muted' href='/'>
+                  Home<span className='sr-only'>(current)</span>
+                </a>
+              </li>
+              <li className='nav-item'>
+                <a className='nav-link' href='/'>
+                  {''}
+                </a>
+              </li>
+            </ul>
+            <div className='my-2 my-md-0'>
+              <label className='switch'>
+                <input
+                  type='checkbox'
+                  defaultChecked={this.state.checked}
+                  onChange={this.toggleThemeChange}
+                />
+                <span className='slider round' />
+              </label>
+            </div>
+          </div>
+        </nav>
+      </header>
     );
   }
 }
