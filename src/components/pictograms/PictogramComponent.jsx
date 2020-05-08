@@ -40,7 +40,7 @@ class PictogramComponent extends Component {
 
   render() {
     return (
-      <div className='overflow-hidden p-2'>
+      <div className='p-2'>
         <img
           onClick={this.clickHandler}
           src={this.state.image}
