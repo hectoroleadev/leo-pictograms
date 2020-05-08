@@ -23,35 +23,6 @@ html[data-theme='dark'] {
   --purple-color: #372780;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 body {
   margin: 0;
@@ -78,12 +49,10 @@ body {
 }
 
 .pictogramZoom {
-  border: 10px solid var(--border-color);
-}
-
-.pictogramZoom {
+  cursor: pointer;
   animation-name: zoom;
   animation-duration: 0.3s;
+  border: 10px solid var(--border-color);
 }
 
 @keyframes zoom {
