@@ -45,7 +45,7 @@ class PictogramComponent extends Component {
           onClick={this.clickHandler}
           src={this.state.image}
           alt={this.props.data.name}
-          className='m-3 pictogram border rounded shadow'
+          className='m-2 pictogram border rounded shadow'
           onError={this.handleImageErrored}
         />
       </div>
