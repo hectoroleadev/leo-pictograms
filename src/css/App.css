@@ -2,12 +2,12 @@ html {
   --primary-color: #fff;
   --secondary-color: #282c34;
   --modal-color: rgba(255, 255, 255, 0.5);
-  --green-color: #8ae800;
-  --yellow-color: #faf100;
-  --blue-color: #00a7ea;
-  --red-color: #ff0061;
-  --orange-color: #ffaa00;
-  --purple-color: #7734ea;
+  --green-color: #4f8d23;
+  --yellow-color: #e8c917;
+  --blue-color: #2c5499;
+  --red-color: #b9231f;
+  --orange-color: #e05d1a;
+  --purple-color: #372780;
   --border-color: white;
 }
 
@@ -15,12 +15,12 @@ html[data-theme='dark'] {
   --primary-color: #282c34;
   --secondary-color: #fff;
   --modal-color: rgba(0, 0, 0, 0.5);
-  --green-color: #4f8d23;
-  --yellow-color: #e8c917;
-  --blue-color: #2c5499;
-  --red-color: #b9231f;
-  --orange-color: #e05d1a;
-  --purple-color: #372780;
+  --green-color: #8ae800;
+  --yellow-color: #faf100;
+  --blue-color: #00a7ea;
+  --red-color: #ff0061;
+  --orange-color: #ffaa00;
+  --purple-color: #7734ea;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
@@ -91,8 +91,8 @@ body {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 40px;
+  height: 22px;
 }
 
 .switch input {
@@ -116,31 +116,31 @@ body {
 .slider:before {
   position: absolute;
   content: '';
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 1px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: var(--primary);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px var(--primary);
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
 }
 
 .slider.round {
-  border-radius: 34px;
+  border-radius: 10px;
 }
 
 .slider.round:before {

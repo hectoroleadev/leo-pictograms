@@ -8,7 +8,7 @@ class ColorListComponent extends Component {
     const filter = pictogramZoomed ? 'blur(2px) opacity(.3)' : 'none';
 
     return (
-      <div className={`rounded-lg mr-2 ${classColor}`} style={{ filter }}>
+      <div className={`rounded m-1 ${classColor}`} style={{ filter }}>
         {datas.map(data => {
           return (
             <PictogramComponent

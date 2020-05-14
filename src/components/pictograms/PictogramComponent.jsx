@@ -40,12 +40,12 @@ class PictogramComponent extends Component {
 
   render() {
     return (
-      <div className='p-2'>
+      <div>
         <img
           onClick={this.clickHandler}
           src={this.state.image}
           alt={this.props.data.name}
-          className='img-thumbnail pictogram'
+          className='m-3 pictogram border rounded shadow'
           onError={this.handleImageErrored}
         />
       </div>
