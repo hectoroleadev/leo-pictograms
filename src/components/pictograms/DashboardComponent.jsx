@@ -18,7 +18,7 @@ class DashboardComponent extends Component {
 
   render() {
     return (
-      <section className='row justify-content-center'>
+      <section className='row align-items-start'>
         <PictogramZoomedComponent />
         {this.renderColorListComponent()}
       </section>

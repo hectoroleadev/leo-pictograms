@@ -149,19 +149,11 @@ input:checked + .slider:before {
 
 @media (orientation: portrait) {
   .pictogramZoom {
-    width: 80vw;
-  }
-
-  .pictogram {
-    width: 25vw;
+    width: 95vw;
   }
 }
 @media (orientation: landscape) {
   .pictogramZoom {
-    height: 85vh;
-  }
-
-  .pictogram {
-    width: 13vw;
+    height: 95vh;
   }
 }
