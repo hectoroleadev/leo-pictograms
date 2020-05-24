@@ -18,7 +18,7 @@ class DashboardComponent extends Component {
 
   render() {
     return (
-      <section className='row align-items-start'>
+      <section className='row align-items-start mx-1'>
         <PictogramZoomedComponent />
         {this.renderColorListComponent()}
       </section>
