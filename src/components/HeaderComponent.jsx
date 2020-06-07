@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { sunIcon, moonIcon } from '../utils/Constants';
 
 class HeaderComponent extends Component {
   constructor(props) {
@@ -55,14 +56,12 @@ class HeaderComponent extends Component {
               </li>
             </ul>
             <div className='ml-auto'>
-              <label className='switch'>
-                <input
-                  type='checkbox'
-                  defaultChecked={this.state.checked}
-                  onChange={this.toggleThemeChange}
-                />
-                <span className='slider round' />
-              </label>
+              <img
+                onClick={this.toggleThemeChange}
+                alt='theme mode'
+                src={this.state.checked ? sunIcon : moonIcon}
+                className='themeIcon'
+              />
             </div>
           </div>
         </nav>
