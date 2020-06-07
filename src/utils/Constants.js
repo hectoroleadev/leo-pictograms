@@ -2,6 +2,10 @@ const initSufix = 1;
 const endSufix = 8;
 const imagesResurces = `${process.env.PUBLIC_URL}/images/pictograms`;
 
+export const sunIcon = 'https://img.icons8.com/color/48/000000/sun.png';
+
+export const moonIcon = 'https://img.icons8.com/color/48/000000/new-moon.png';
+
 export const NO_IMAGE = `${imagesResurces}/no-img.png`;
 
 export const CREATE_DATA = prefix => {

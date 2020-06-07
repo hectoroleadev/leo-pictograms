@@ -15,12 +15,12 @@ html[data-theme='dark'] {
   --primary-color: #282c34;
   --secondary-color: #fff;
   --modal-color: rgba(0, 0, 0, 0.5);
-  --green-color: #4f8d23;
-  --yellow-color: #e8c917;
-  --blue-color: #2c5499;
-  --red-color: #b9231f;
-  --orange-color: #e05d1a;
-  --purple-color: #372780;
+  --green-color: #18d43f;
+  --yellow-color: #fdfd15;
+  --blue-color: #1ab2de;
+  --red-color: #ff1529;
+  --orange-color: #ff961b;
+  --purple-color: #ba29ea;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
@@ -35,7 +35,8 @@ body {
   color: var(--secondary-color);
 }
 
-.pictogram {
+.pictogram,
+.themeIcon {
   -webkit-transition: -webkit-transform 500ms ease;
   transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
@@ -43,7 +44,8 @@ body {
   cursor: pointer;
 }
 
-.pictogram:hover {
+.pictogram:hover,
+.themeIcon:hover {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
@@ -88,80 +90,13 @@ body {
   background-color: var(--purple-color);
 }
 
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: '';
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: #2196f3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
 @media (orientation: portrait) {
   .pictogramZoom {
-    width: 80vw;
-  }
-
-  .pictogram {
-    width: 25vw;
+    width: 95vw;
   }
 }
 @media (orientation: landscape) {
   .pictogramZoom {
-    height: 85vh;
-  }
-
-  .pictogram {
-    width: 13vw;
+    height: 95vh;
   }
 }

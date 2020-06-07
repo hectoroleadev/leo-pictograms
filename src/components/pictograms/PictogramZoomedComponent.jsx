@@ -10,15 +10,16 @@ class PictogramZoomedComponent extends Component {
       <>
         {pictogramZoomed && (
           <div
-            className='d-flex justify-content-center align-items-center modal'
-            onClick={() => displayImageZoomed(null)}
-          >
-            <img
-              className='pictogramZoom shadow rounded-lg'
-              alt={'pictogramZoom'}
-              src={pictogramZoomed}
-              onClick={() => displayImageZoomed(null)}
-            />
+            className='d-flex justify-content-center modal'
+            onClick={() => displayImageZoomed(null)}>
+            <div className='align-self-center'>
+              <img
+                className='pictogramZoom shadow rounded img-fluid'
+                alt={'pictogramZoom'}
+                src={pictogramZoomed}
+                onClick={() => displayImageZoomed(null)}
+              />
+            </div>
           </div>
         )}
       </>
