@@ -2,37 +2,13 @@ const initSufix = 1;
 const endSufix = 8;
 const imagesResurces = `${process.env.PUBLIC_URL}/images/pictograms`;
 
-export const noImage = `${imagesResurces}/no-img.png`;
+export const sunIcon = 'https://img.icons8.com/color/48/000000/sun.png';
 
-export const landscapeStyle = () => {
-  return {
-    width: '45vw',
-    height: '30vw',
-    marginTop: '-15vw',
-    marginLeft: '-22.5vw'
-  };
-};
+export const moonIcon = 'https://img.icons8.com/color/48/000000/new-moon.png';
 
-export const portraitStyle = () => {
-  return {
-    width: '30vw',
-    height: '45vw',
-    marginTop: '-22.5vw',
-    marginLeft: '-15vw'
-  };
-};
+export const NO_IMAGE = `${imagesResurces}/no-img.png`;
 
-export const landscapeThumbnailStyle = {
-  width: '12vw',
-  height: '8vw'
-};
-
-export const portraitThumbnailStyle = {
-  width: '8vw',
-  height: '12vw'
-};
-
-export const createData = prefix => {
+export const CREATE_DATA = prefix => {
   let data = [];
 
   for (let i = initSufix; i <= endSufix; i++) {
@@ -48,4 +24,13 @@ export const createData = prefix => {
   return data;
 };
 
-export default createData;
+export const COLOR_LIST = [
+  { datas: 'objeto', classColor: 'orangeColor' },
+  { datas: 'verbo', classColor: 'greenColor' },
+  { datas: 'persona', classColor: 'yellowColor' },
+  { datas: 'comida', classColor: 'redColor' },
+  { datas: 'actividad', classColor: 'blueColor' },
+  { datas: 'social', classColor: 'purpleColor' }
+];
+
+export default CREATE_DATA;

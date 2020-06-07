@@ -1,33 +1,36 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 class PictogramZoomedComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.hideImageHandler = this.hideImageHandler.bind(this);
-  }
-
-  hideImageHandler(e) {
-    e.preventDefault();
-    this.props.hideImageZoomedHandler();
-  }
-
   render() {
-    const showHideClassName = this.props.isImageDiplayed
-      ? 'modal d-block'
-      : 'modal d-none';
+    const { pictogramZoomed, displayImageZoomed } = this.props;
 
     return (
-      <div className={showHideClassName} onClick={this.hideImageHandler}>
-        <img
-          className='pictogramZoom shadow-md rounded-lg'
-          alt={'pictogramZoom'}
-          src={this.props.srcImage}
-          style={this.props.customStyleImage}
-          onClick={this.hideImageHandler}
-        />
-      </div>
+      <>
+        {pictogramZoomed && (
+          <div
+            className='d-flex justify-content-center modal'
+            onClick={() => displayImageZoomed(null)}>
+            <div className='align-self-center'>
+              <img
+                className='pictogramZoom shadow rounded img-fluid'
+                alt={'pictogramZoom'}
+                src={pictogramZoomed}
+                onClick={() => displayImageZoomed(null)}
+              />
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 }
 
-export default PictogramZoomedComponent;
+function mapStateToProps({ pictogramZoomed }) {
+  return {
+    pictogramZoomed
+  };
+}
+
+export default connect(mapStateToProps, actions)(PictogramZoomedComponent);

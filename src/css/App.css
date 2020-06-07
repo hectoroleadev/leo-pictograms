@@ -1,0 +1,102 @@
+html {
+  --primary-color: #fff;
+  --secondary-color: #282c34;
+  --modal-color: rgba(255, 255, 255, 0.5);
+  --green-color: #8ae800;
+  --yellow-color: #faf100;
+  --blue-color: #00a7ea;
+  --red-color: #ff0061;
+  --orange-color: #ffaa00;
+  --purple-color: #7734ea;
+  --border-color: white;
+}
+
+html[data-theme='dark'] {
+  --primary-color: #282c34;
+  --secondary-color: #fff;
+  --modal-color: rgba(0, 0, 0, 0.5);
+  --green-color: #18d43f;
+  --yellow-color: #fdfd15;
+  --blue-color: #1ab2de;
+  --red-color: #ff1529;
+  --orange-color: #ff961b;
+  --purple-color: #ba29ea;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Gochi Hand', cursive;
+  font-size: 18px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.pictogram,
+.themeIcon {
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+  cursor: pointer;
+}
+
+.pictogram:hover,
+.themeIcon:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.pictogramZoom {
+  cursor: pointer;
+  animation-name: zoom;
+  animation-duration: 0.3s;
+  border: 10px solid var(--border-color);
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.orangeColor {
+  background-color: var(--orange-color);
+}
+
+.greenColor {
+  background-color: var(--green-color);
+}
+
+.blueColor {
+  background-color: var(--blue-color);
+}
+
+.redColor {
+  background-color: var(--red-color);
+}
+
+.yellowColor {
+  background-color: var(--yellow-color);
+}
+
+.purpleColor {
+  background-color: var(--purple-color);
+}
+
+@media (orientation: portrait) {
+  .pictogramZoom {
+    width: 95vw;
+  }
+}
+@media (orientation: landscape) {
+  .pictogramZoom {
+    height: 95vh;
+  }
+}
