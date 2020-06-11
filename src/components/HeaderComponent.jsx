@@ -48,13 +48,14 @@ class HeaderComponent extends Component {
           <a
             className='navbar-brand text-muted font-weight-bold'
             href={`${URL_BASE}/`}>
-            Leo's Pictograms
+            <span className='blueColorText'>Leo's </span>
+            <span className='blueColorText'>Pictograms</span>
           </a>
           <div className='collapse navbar-collapse'>
             <ul className='navbar-nav'>
               <li className='nav-item'>
-                <a className='nav-link text-muted' href={`${URL_BASE}/`}>
-                  Home
+                <a className='nav-link' href={`${URL_BASE}/`}>
+                  <span className='purpleColorText'>Home</span>
                 </a>
               </li>
             </ul>
@@ -66,7 +67,8 @@ class HeaderComponent extends Component {
                 className='themeIcon'
                 data-toggle='tooltip'
                 data-placement='left'
-                title='Switch Between Themes'
+                title='<span class="blueColorText gochiHandFontFamily">Switch Between Themes</span>'
+                data-html='true'
               />
             </div>
           </div>

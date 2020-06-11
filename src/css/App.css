@@ -91,6 +91,35 @@ body {
   background-color: var(--purple-color);
 }
 
+.orangeColorText {
+  color: var(--orange-color);
+}
+
+.greenColorText {
+  color: var(--green-color);
+}
+
+.blueColorText {
+  color: var(--blue-color);
+}
+
+.redColorText {
+  color: var(--red-color);
+}
+
+.yellowColorText {
+  color: var(--yellow-color);
+}
+
+.purpleColorText {
+  color: var(--purple-color);
+}
+
+.gochiHandFontFamily {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 18px;
+}
+
 @media (orientation: portrait) {
   .pictogramZoom {
     width: 95vw;
