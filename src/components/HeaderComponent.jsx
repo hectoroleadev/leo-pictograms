@@ -1,5 +1,6 @@
+import $ from 'jquery';
 import React, { Component } from 'react';
-import { sunIcon, moonIcon } from '../utils/Constants';
+import { sunIcon, moonIcon, URL_BASE } from '../utils/Constants';
 
 class HeaderComponent extends Component {
   constructor(props) {
@@ -10,9 +11,15 @@ class HeaderComponent extends Component {
     };
 
     this.toggleThemeChange = this.toggleThemeChange.bind(this);
+    this.changeTheme = this.changeTheme.bind(this);
   }
 
   componentDidMount() {
+    $('[data-toggle="tooltip"]').tooltip();
+    this.changeTheme();
+  }
+
+  changeTheme() {
     document
       .getElementsByTagName('html')[0]
       .setAttribute('data-theme', localStorage.getItem('theme'));
@@ -27,10 +34,7 @@ class HeaderComponent extends Component {
     }
 
     localStorage.setItem('theme', theme);
-
-    document
-      .getElementsByTagName('html')[0]
-      .setAttribute('data-theme', localStorage.getItem('theme'));
+    this.changeTheme();
 
     this.setState({
       checked: !checked
@@ -38,7 +42,6 @@ class HeaderComponent extends Component {
   }
 
   render() {
-    const URL_BASE = `${process.env.PUBLIC_URL}`;
     return (
       <header>
         <nav className='navbar navbar-expand'>
@@ -61,6 +64,9 @@ class HeaderComponent extends Component {
                 alt='theme mode'
                 src={this.state.checked ? sunIcon : moonIcon}
                 className='themeIcon'
+                data-toggle='tooltip'
+                data-placement='left'
+                title='Switch Between Themes'
               />
             </div>
           </div>

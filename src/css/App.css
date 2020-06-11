@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+
 html {
   --primary-color: #fff;
   --secondary-color: #282c34;
@@ -23,7 +25,6 @@ html[data-theme='dark'] {
   --purple-color: #ba29ea;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 body {
   margin: 0;
   padding: 0;
@@ -99,4 +100,10 @@ body {
   .pictogramZoom {
     height: 95vh;
   }
+}
+
+/* Customize Bootstrap */
+
+.modal {
+  background: var(--modal-color);
 }

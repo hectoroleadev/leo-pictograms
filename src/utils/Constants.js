@@ -33,4 +33,6 @@ export const COLOR_LIST = [
   { datas: 'social', classColor: 'purpleColor' }
 ];
 
+export const URL_BASE = `${process.env.PUBLIC_URL}`;
+
 export default CREATE_DATA;
