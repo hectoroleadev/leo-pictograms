@@ -43,11 +43,11 @@ class HeaderComponent extends Component {
 
   render() {
     return (
-      <header>
-        <nav className='navbar navbar-expand'>
-          <a
-            className='navbar-brand text-muted font-weight-bold'
-            href={`${URL_BASE}/`}>
+      <nav
+        className='navbar navbar-expand-md navbar-expand fixed-top py-2'
+        id='main-nav'>
+        <div className='container'>
+          <a className='navbar-brand font-weight-bold' href={`${URL_BASE}/`}>
             <span className='blueColorText'>Leo's </span>
             <span className='blueColorText'>Pictograms</span>
           </a>
@@ -67,13 +67,14 @@ class HeaderComponent extends Component {
                 className='themeIcon'
                 data-toggle='tooltip'
                 data-placement='left'
+                data-trigger='hover'
                 title='<span class="blueColorText gochiHandFontFamily">Switch Between Themes</span>'
                 data-html='true'
               />
             </div>
           </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
     );
   }
 }

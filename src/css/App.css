@@ -34,6 +34,7 @@ body {
   font-size: 18px;
   background-color: var(--primary-color);
   color: var(--secondary-color);
+  margin-top: 76px;
 }
 
 .pictogram,
@@ -54,16 +55,16 @@ body {
 .pictogramZoom {
   cursor: pointer;
   animation-name: zoom;
-  animation-duration: 0.3s;
+  animation-duration: 1s;
   border: 10px solid var(--border-color);
 }
 
 @keyframes zoom {
   from {
-    transform: scale(0.1);
+    transform: rotate(0deg);
   }
   to {
-    transform: scale(1);
+    transform: rotate(360deg);
   }
 }
 
@@ -122,12 +123,15 @@ body {
 
 @media (orientation: portrait) {
   .pictogramZoom {
-    width: 95vw;
+    width: 80vw;
+    margin-top: 10vw;
   }
 }
+
 @media (orientation: landscape) {
   .pictogramZoom {
-    height: 95vh;
+    height: 80vh;
+    margin-top: 10vh;
   }
 }
 
@@ -135,4 +139,15 @@ body {
 
 .modal {
   background: var(--modal-color);
+}
+
+.navbar {
+  box-shadow: 2px 2px 5px var(--purple-color);
+  opacity: 0.9;
+  background: var(--primary-color);
+}
+
+.navbar .nav-item {
+  font-size: 1.4rem;
+  padding-right: 1.4rem;
 }
