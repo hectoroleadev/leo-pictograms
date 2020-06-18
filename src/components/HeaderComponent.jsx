@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { sunIcon, moonIcon, URL_BASE } from '../utils/Constants';
 
 class HeaderComponent extends Component {
@@ -43,20 +44,29 @@ class HeaderComponent extends Component {
 
   render() {
     return (
-      <nav
-        className='navbar navbar-expand-md navbar-expand fixed-top py-2'
-        id='main-nav'>
+      <nav className='navbar navbar-expand-sm navbar-dark fixed-top py-2'>
         <div className='container'>
-          <a className='navbar-brand font-weight-bold' href={`${URL_BASE}/`}>
+          <Link className='navbar-brand font-weight-bold' to={`${URL_BASE}/`}>
             <span className='blueColorText'>Leo's </span>
             <span className='blueColorText'>Pictograms</span>
-          </a>
-          <div className='collapse navbar-collapse'>
+          </Link>
+          <button
+            class='navbar-toggler'
+            data-toggle='collapse'
+            data-target='#navbarNav'>
+            <span class='navbar-toggler-icon'></span>
+          </button>
+          <div className='collapse navbar-collapse' id='navbarNav'>
             <ul className='navbar-nav'>
               <li className='nav-item'>
-                <a className='nav-link' href={`${URL_BASE}/`}>
+                <Link className='nav-link' to={`${URL_BASE}/`}>
                   <span className='purpleColorText'>Home</span>
-                </a>
+                </Link>
+              </li>
+              <li className='nav-item'>
+                <Link className='nav-link' to={`${URL_BASE}/cartoons`}>
+                  <span className='purpleColorText'>Cartoons</span>
+                </Link>
               </li>
             </ul>
             <div className='ml-auto'>

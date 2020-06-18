@@ -147,7 +147,6 @@ body {
   background: var(--primary-color);
 }
 
-.navbar .nav-item {
-  font-size: 1.4rem;
-  padding-right: 1.4rem;
+.navbar-toggler {
+  background-color: var(--purple-color);
 }

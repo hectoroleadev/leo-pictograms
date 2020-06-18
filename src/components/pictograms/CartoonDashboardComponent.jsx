@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ColorListComponent from './ColorListComponent';
 import PictogramZoomedComponent from './PictogramZoomedComponent';
-import createData, { COLOR_LIST } from '../../utils/Constants';
+import createData, { CARTOON_LIST } from '../../utils/Constants';
 
 class DashboardComponent extends Component {
   renderColorListComponent() {
-    return COLOR_LIST.map(({ datas, classColor, size }) => {
+    return CARTOON_LIST.map(({ datas, classColor, size }) => {
       return (
         <ColorListComponent
           key={classColor}
