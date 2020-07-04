@@ -51,10 +51,10 @@ class HeaderComponent extends Component {
             <span className='blueColorText'>Pictograms</span>
           </Link>
           <button
-            class='navbar-toggler'
+            className='navbar-toggler'
             data-toggle='collapse'
             data-target='#navbarNav'>
-            <span class='navbar-toggler-icon'></span>
+            <span className='navbar-toggler-icon'></span>
           </button>
           <div className='collapse navbar-collapse' id='navbarNav'>
             <ul className='navbar-nav'>
