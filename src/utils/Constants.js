@@ -26,7 +26,7 @@ export const CREATE_DATA = (prefix, endSufix) => {
 export const COLOR_LIST = [
   { datas: 'pictograms/objeto', classColor: 'orangeColor', size: 8 },
   { datas: 'pictograms/verbo', classColor: 'greenColor', size: 7 },
-  { datas: 'pictograms/persona', classColor: 'yellowColor', size: 4 },
+  { datas: 'pictograms/persona', classColor: 'yellowColor', size: 5 },
   { datas: 'pictograms/comida', classColor: 'redColor', size: 5 },
   { datas: 'pictograms/actividad', classColor: 'blueColor', size: 7 },
   { datas: 'pictograms/social', classColor: 'purpleColor', size: 5 }
