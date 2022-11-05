@@ -1,5 +1,5 @@
 const initSufix = 1;
-const imagesResurces = `${process.env.PUBLIC_URL}/images/`;
+const imagesResurces = `${process.env.PUBLIC_URL}/images`;
 
 export const sunIcon = 'https://img.icons8.com/color/48/000000/sun.png';
 

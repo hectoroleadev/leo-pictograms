@@ -1,21 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import LeoPictogramApp from './components/LeoPictogramApp';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, legacy_createStore as createStore } from 'redux';
 import reduxThunk from 'redux-thunk';
+import LeoPictogramApp from './components/LeoPictogramApp';
 import reducers from './reducers';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+const rootElement = document.getElementById('root');
 
-ReactDOM.render(
+render(
   <Provider store={store}>
     <React.StrictMode>
       <LeoPictogramApp />
     </React.StrictMode>
   </Provider>,
-  document.getElementById('root')
+  rootElement
 );
 
 // If you want your app to work offline and load faster, you can change

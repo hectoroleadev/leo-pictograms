@@ -8,7 +8,7 @@ class DashboardComponent extends Component {
     return CARTOON_LIST.map(({ datas, classColor, size }) => {
       return (
         <ColorListComponent
-          key={classColor}
+          key={datas}
           datas={createData(datas, size)}
           classColor={classColor}
         />
