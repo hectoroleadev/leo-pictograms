@@ -2,7 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DashboardComponent from './pictograms/DashboardComponent';
 import CartoonDashboardComponent from './pictograms/CartoonDashboardComponent';
 import FooterComponent from './FooterComponent';
@@ -16,11 +16,17 @@ class LeoPictogramApp extends Component {
       <BrowserRouter>
         <div className='container-fluid'>
           <HeaderComponent />
-          <Route exact path={`${URL_BASE}/`} component={DashboardComponent} />
-          <Route
-            path={`${URL_BASE}/cartoons`}
-            component={CartoonDashboardComponent}
-          />
+          <Routes>
+            <Route
+              exact
+              path={`${URL_BASE}/`}
+              element={<DashboardComponent />}
+            />
+            <Route
+              path={`${URL_BASE}/cartoons`}
+              element={<CartoonDashboardComponent />}
+            />
+          </Routes>
           <FooterComponent />
         </div>
       </BrowserRouter>
