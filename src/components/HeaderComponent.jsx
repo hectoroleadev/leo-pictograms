@@ -1,14 +1,15 @@
 import $ from 'jquery';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { sunIcon, moonIcon, URL_BASE } from '../utils/Constants';
+import { moonIcon, sunIcon, URL_BASE } from '../utils/Constants';
+import { Tooltip } from 'bootstrap';
 
 class HeaderComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      checked: localStorage.getItem('theme') === 'dark' ? true : false
+      checked: localStorage.getItem('theme') === 'dark' ? true : false,
     };
 
     this.toggleThemeChange = this.toggleThemeChange.bind(this);
@@ -16,7 +17,11 @@ class HeaderComponent extends Component {
   }
 
   componentDidMount() {
-    $('[data-toggle="tooltip"]').tooltip();
+    const tooltipTriggerList = $('[data-bs-toggle="tooltip"]');
+    [...tooltipTriggerList].map(
+      (tooltipTriggerEl) => new Tooltip(tooltipTriggerEl)
+    );
+
     this.changeTheme();
   }
 
@@ -38,22 +43,24 @@ class HeaderComponent extends Component {
     this.changeTheme();
 
     this.setState({
-      checked: !checked
+      checked: !checked,
     });
   }
 
   render() {
     return (
-      <nav className='navbar navbar-expand-sm navbar-dark fixed-top py-2'>
+      <nav className='navbar navbar-expand-sm navbar-dark fixed-top py-1'>
         <div className='container'>
-          <Link className='navbar-brand font-weight-bold' to={`${URL_BASE}/`}>
-            <span className='blueColorText'>Leo's </span>
-            <span className='blueColorText'>Pictograms</span>
+          <Link className='navbar-brand' to={`${URL_BASE}/`}>
+            <span className='blueColorText h1'>Leo's pictograms</span>
           </Link>
           <button
             className='navbar-toggler'
-            data-toggle='collapse'
-            data-target='#navbarNav'>
+            data-bs-toggle='collapse'
+            data-bs-target='#navbarNav'
+            ria-expanded='false'
+            aria-controls='navbarNav'
+          >
             <span className='navbar-toggler-icon'></span>
           </button>
           <div className='collapse navbar-collapse' id='navbarNav'>
@@ -69,17 +76,17 @@ class HeaderComponent extends Component {
                 </Link>
               </li>
             </ul>
-            <div className='ml-auto'>
+            <div className='ms-auto'>
               <img
                 onClick={this.toggleThemeChange}
                 alt='theme mode'
                 src={this.state.checked ? sunIcon : moonIcon}
                 className='themeIcon'
-                data-toggle='tooltip'
-                data-placement='left'
-                data-trigger='hover'
-                title='<span class="blueColorText gochiHandFontFamily">Switch Between Themes</span>'
-                data-html='true'
+                data-bs-toggle='tooltip'
+                data-bs-placement='left'
+                data-bs-trigger='hover'
+                data-bs-title='<span class="blueColorText gochiHandFontFamily">Switch Between Themes</span>'
+                data-bs-html='true'
               />
             </div>
           </div>

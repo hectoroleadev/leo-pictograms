@@ -9,7 +9,7 @@ class ColorListComponent extends Component {
 
     return (
       <div
-        className={`col-sm-2 col-4 mb-2 rounded pl-0 ${classColor}`}
+        className={`col-sm-2 col-4 mb-2 rounded ps-0 ${classColor}`}
         style={{ filter }}>
         {datas.map(data => {
           return (

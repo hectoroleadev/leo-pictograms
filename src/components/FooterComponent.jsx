@@ -4,7 +4,7 @@ class FooterComponent extends Component {
   render() {
     return (
       <footer className='text-center'>
-        <span className='blueColorText'>All rights reserved 2020 @macako</span>
+        <span className='blueColorText'>© 2022 hectorolea.dev</span>
       </footer>
     );
   }
