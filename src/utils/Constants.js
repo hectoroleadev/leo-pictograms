@@ -16,7 +16,7 @@ export const CREATE_DATA = (prefix, endSufix) => {
     data.push({
       id: i,
       name: `${prefix}${i}`,
-      image: srcImage
+      image: srcImage,
     });
   }
 
@@ -29,14 +29,14 @@ export const COLOR_LIST = [
   { datas: 'pictograms/persona', classColor: 'yellowColor', size: 5 },
   { datas: 'pictograms/comida', classColor: 'redColor', size: 5 },
   { datas: 'pictograms/actividad', classColor: 'blueColor', size: 7 },
-  { datas: 'pictograms/social', classColor: 'purpleColor', size: 5 }
+  { datas: 'pictograms/social', classColor: 'purpleColor', size: 5 },
 ];
 
 export const CARTOON_LIST = [
   { datas: 'cartoons/bob', classColor: 'bg-transparent', size: 5 },
   { datas: 'cartoons/leo-camion', classColor: 'bg-transparent', size: 6 },
   { datas: 'cartoons/zenon', classColor: 'bg-transparent', size: 6 },
-  { datas: 'cartoons/paw-patrol', classColor: 'bg-transparent', size: 6 }
+  { datas: 'cartoons/paw-patrol', classColor: 'bg-transparent', size: 6 },
 ];
 
 export const URL_BASE = `${process.env.PUBLIC_URL}`;
