@@ -5,29 +5,38 @@ import { moonIcon, sunIcon, URL_BASE } from '../utils/Constants';
 import { Tooltip } from 'bootstrap';
 
 const HeaderComponent = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(
-    localStorage.getItem('theme') === 'dark' ? true : false
+  const themes = { dark: 'dark', light: 'light' };
+  const [isDarkTheme, setDarkTheme] = useState(
+    getTheme() === themes.dark ? true : false
   );
 
   useEffect(() => {
+    changeTheme();
+
     const tooltipTriggerList = $('[data-bs-toggle="tooltip"]');
     [...tooltipTriggerList].map(
       (tooltipTriggerEl) => new Tooltip(tooltipTriggerEl)
     );
-
-    changeTheme();
-  });
+  }, []);
 
   function changeTheme() {
     document
       .getElementsByTagName('html')[0]
-      .setAttribute('data-theme', localStorage.getItem('theme'));
+      .setAttribute('data-theme', getTheme());
   }
 
   function toggleThemeChange() {
-    localStorage.setItem('theme', isDarkTheme ? 'light' : 'dark');
+    setTheme(isDarkTheme ? themes.light : themes.dark);
     changeTheme();
-    setIsDarkTheme(!isDarkTheme);
+    setDarkTheme(!isDarkTheme);
+  }
+
+  function getTheme() {
+    return localStorage.getItem('theme');
+  }
+
+  function setTheme(theme) {
+    localStorage.setItem('theme', theme);
   }
 
   return (
