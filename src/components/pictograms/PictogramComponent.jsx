@@ -1,28 +1,18 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { NO_IMAGE } from '../../utils/Constants';
 
-class PictogramComponent extends Component {
-  constructor(props) {
-    super(props);
+const PictogramComponent = ({ data, classColor, displayImageZoomed }) => {
+  const [image, setImage] = useState(data.image);
 
-    this.state = {
-      image: this.props.data.image
-    };
+  function clickHandler(event) {
+    event.preventDefault();
 
-    this.clickHandler = this.clickHandler.bind(this);
-    this.handleImageErrored = this.handleImageErrored.bind(this);
-  }
-
-  clickHandler(e) {
-    e.preventDefault();
-
-    if (this.state.image === NO_IMAGE) {
+    if (image === NO_IMAGE) {
       return;
     }
 
-    const { data, classColor, displayImageZoomed } = this.props;
     const element = document.querySelector(`.${classColor}`);
     const style = getComputedStyle(element);
     const elm = document.documentElement;
@@ -32,25 +22,17 @@ class PictogramComponent extends Component {
     displayImageZoomed(data.image);
   }
 
-  handleImageErrored() {
-    this.setState({
-      image: NO_IMAGE
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <img
-          onClick={this.clickHandler}
-          src={this.state.image}
-          alt={this.props.data.name}
-          className='pictogram m-2 border rounded shadow img-fluid'
-          onError={this.handleImageErrored}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <img
+        onClick={(event) => clickHandler(event)}
+        src={image}
+        alt={data.name}
+        className='pictogram m-2 border rounded shadow img-fluid'
+        onError={() => setImage(NO_IMAGE)}
+      />
+    </div>
+  );
+};
 
 export default connect(null, actions)(PictogramComponent);
