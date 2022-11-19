@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import { displayImageZoomed } from '../../actions';
 import { NO_IMAGE } from '../../utils/Constants';
+import { useDispatch } from 'react-redux';
 
-const PictogramComponent = ({ data, classColor, displayImageZoomed }) => {
+const PictogramComponent = ({ data, classColor }) => {
   const [image, setImage] = useState(data.image);
+  const dispatch = useDispatch();
 
   function clickHandler(event) {
     event.preventDefault();
@@ -19,7 +20,7 @@ const PictogramComponent = ({ data, classColor, displayImageZoomed }) => {
 
     elm.style.setProperty('--border-color', style.backgroundColor);
 
-    displayImageZoomed(data.image);
+    dispatch(displayImageZoomed(data.image));
   }
 
   return (
@@ -35,4 +36,4 @@ const PictogramComponent = ({ data, classColor, displayImageZoomed }) => {
   );
 };
 
-export default connect(null, actions)(PictogramComponent);
+export default PictogramComponent;

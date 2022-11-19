@@ -1,21 +1,24 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import { displayImageZoomed } from '../../actions';
+import { useSelector, useDispatch } from 'react-redux';
 
-const PictogramZoomedComponent = ({ pictogramZoomed, displayImageZoomed }) => {
+const PictogramZoomedComponent = () => {
+  const pictogramZoomed = useSelector((state) => state.pictogramZoomed);
+  const dispatch = useDispatch();
+
   return (
     <>
       {pictogramZoomed && (
         <div
           className='d-flex justify-content-center modal'
-          onClick={() => displayImageZoomed(null)}
+          onClick={() => dispatch(displayImageZoomed(null))}
         >
           <div className='align-self-center'>
             <img
               className='pictogramZoom shadow rounded img-fluid'
               alt={'pictogramZoom'}
               src={pictogramZoomed}
-              onClick={() => displayImageZoomed(null)}
+              onClick={() => dispatch(displayImageZoomed(null))}
             />
           </div>
         </div>
@@ -24,10 +27,4 @@ const PictogramZoomedComponent = ({ pictogramZoomed, displayImageZoomed }) => {
   );
 };
 
-function mapStateToProps({ pictogramZoomed }) {
-  return {
-    pictogramZoomed,
-  };
-}
-
-export default connect(mapStateToProps, actions)(PictogramZoomedComponent);
+export default PictogramZoomedComponent;
