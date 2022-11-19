@@ -46,18 +46,14 @@ const HeaderComponent = () => {
           className='navbar-toggler'
           data-bs-toggle='collapse'
           data-bs-target='#navbarNav'
-          ria-expanded='false'
+          aria-expanded='false'
           aria-controls='navbarNav'
+          aria-label='Toggle navigation'
         >
           <span className='navbar-toggler-icon'></span>
         </button>
-        <div className='collapse navbar-collapse' id='navbarNav'>
+        <div id='navbarNav' className='collapse navbar-collapse'>
           <ul className='navbar-nav'>
-            <li className='nav-item'>
-              <Link className='nav-link' to={`${URL_BASE}/`}>
-                <span className='purpleColorText'>Home</span>
-              </Link>
-            </li>
             <li className='nav-item'>
               <Link className='nav-link' to={`${URL_BASE}/cartoons`}>
                 <span className='purpleColorText'>Cartoons</span>
