@@ -1,8 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PictogramComponent from './PictogramComponent';
+import { useSelector } from 'react-redux';
 
-const ColorListComponent = ({ classColor, pictogramZoomed, datas }) => {
+const ColorListComponent = ({ classColor, datas }) => {
+  const pictogramZoomed = useSelector((state) => state.pictogramZoomed);
   const filter = pictogramZoomed ? 'blur(2px) opacity(.3)' : 'none';
 
   return (
@@ -23,10 +24,4 @@ const ColorListComponent = ({ classColor, pictogramZoomed, datas }) => {
   );
 };
 
-function mapStateToProps({ pictogramZoomed }) {
-  return {
-    pictogramZoomed,
-  };
-}
-
-export default connect(mapStateToProps, null)(ColorListComponent);
+export default ColorListComponent;

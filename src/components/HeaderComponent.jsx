@@ -11,23 +11,20 @@ const HeaderComponent = () => {
   );
 
   useEffect(() => {
-    changeTheme();
-
     const tooltipTriggerList = $('[data-bs-toggle="tooltip"]');
     [...tooltipTriggerList].map(
       (tooltipTriggerEl) => new Tooltip(tooltipTriggerEl)
     );
   }, []);
 
-  function changeTheme() {
+  useEffect(() => {
     document
       .getElementsByTagName('html')[0]
       .setAttribute('data-theme', getTheme());
-  }
+  }, [isDarkTheme]);
 
   function toggleThemeChange() {
     setTheme(isDarkTheme ? themes.light : themes.dark);
-    changeTheme();
     setDarkTheme(!isDarkTheme);
   }
 

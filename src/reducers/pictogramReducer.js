@@ -1,6 +1,8 @@
 import { DISPLAY_IMAGE } from '../actions/types';
 
-export default function image(state = null, action) {
+const initialState = null;
+
+export default function image(state = initialState, action) {
   switch (action.type) {
     case DISPLAY_IMAGE:
       return action.srcImage;
