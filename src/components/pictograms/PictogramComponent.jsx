@@ -14,13 +14,16 @@ const PictogramComponent = ({ data, classColor }) => {
       return;
     }
 
+    setBorderColorToImageZoomed(classColor);
+    dispatch(displayImageZoomed(image));
+  }
+
+  function setBorderColorToImageZoomed(classColor) {
     const element = document.querySelector(`.${classColor}`);
     const style = getComputedStyle(element);
     const elm = document.documentElement;
 
     elm.style.setProperty('--border-color', style.backgroundColor);
-
-    dispatch(displayImageZoomed(data.image));
   }
 
   return (
