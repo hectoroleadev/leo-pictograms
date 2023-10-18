@@ -142,7 +142,7 @@ body {
 }
 
 .navbar {
-  box-shadow: 2px 2px 5px var(--purple-color);
+  box-shadow: 2px 2px 5px var(--blue-color);
   opacity: 0.9;
   background: var(--primary-color);
 }
