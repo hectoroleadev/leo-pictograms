@@ -1,4 +1,3 @@
-console.log(import.meta.env);
 export const Footer = () => {
   return (
     <footer className='text-center'>
