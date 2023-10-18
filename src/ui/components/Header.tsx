@@ -1,6 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { URL_BASE, getDefaultImages } from '../../helpers';
 import { useTheme } from '../hooks/useTheme';
+
+const generateStyle = (isActive: boolean) =>
+  isActive ? 'purpleColorText' : 'blueColorText';
 
 export const Header = () => {
   const { moonIcon, sunIcon } = getDefaultImages();
@@ -14,25 +17,32 @@ export const Header = () => {
         </Link>
         <button
           className='navbar-toggler'
+          type='button'
           data-bs-toggle='collapse'
-          data-bs-target='#navbarNav'
+          data-bs-target='#navbarSupportedContent'
+          aria-controls='navbarSupportedContent'
           aria-expanded='false'
-          aria-controls='navbarNav'
           aria-label='Toggle navigation'
         >
           <span className='navbar-toggler-icon'></span>
         </button>
-        <div id='navbarNav' className='collapse navbar-collapse'>
-          <ul className='navbar-nav'>
-            <li className='nav-item'>
-              <Link className='nav-link' to={`${URL_BASE}/cartoons`}>
-                <span className='blueColorText'>Cartoons</span>
-              </Link>
-            </li>
-          </ul>
+        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+          <div className='navbar-nav'>
+            <NavLink className='nav-item nav-link' to={`${URL_BASE}/photos`}>
+              {({ isActive }) => (
+                <span className={generateStyle(isActive)}>Photos</span>
+              )}
+            </NavLink>
+
+            <NavLink className='nav-item nav-link' to={`${URL_BASE}/cartoons`}>
+              {({ isActive }) => (
+                <span className={generateStyle(isActive)}>Cartoons</span>
+              )}
+            </NavLink>
+          </div>
           <div className='ms-auto'>
             <img
-              onClick={() => toggleThemeChange()}
+              onClick={toggleThemeChange}
               alt='theme mode'
               src={isDarkTheme ? sunIcon : moonIcon}
               className='themeIcon'
