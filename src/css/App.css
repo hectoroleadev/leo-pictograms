@@ -123,14 +123,14 @@ body {
 
 @media (orientation: portrait) {
   .pictogramZoom {
-    width: 80vw;
+    width: 60vw;
     margin-top: 10vw;
   }
 }
 
 @media (orientation: landscape) {
   .pictogramZoom {
-    height: 80vh;
+    height: 50vh;
     margin-top: 10vh;
   }
 }

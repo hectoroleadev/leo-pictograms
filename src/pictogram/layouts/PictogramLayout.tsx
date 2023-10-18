@@ -7,7 +7,12 @@ interface Props {
 
 export const PictogramLayout = ({ children }: Props) => {
   return (
-    <div className='container-fluid'>
+    <div
+      className='container-fluid'
+      style={{
+        marginTop: '5em',
+      }}
+    >
       <Header />
       <section className='row justify-content-center align-items-start mx-1'>
         <PictogramZoomed />
