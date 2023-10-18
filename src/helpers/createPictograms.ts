@@ -1,7 +1,7 @@
 import { Pictogram } from '../pictogram/interfaces';
 
 const initSufix = 1;
-export const URL_BASE = import.meta.env.PUBLIC_URL || '';
+export const URL_BASE = import.meta.env.BASE_URL || '';
 
 const imagesResurces = `${URL_BASE}/images`;
 
