@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import { URL_BASE, getDefaultImages } from '../../helpers';
+import { URL_BASE_ROUTER, getDefaultImages } from '../../helpers';
 import { useTheme } from '../hooks/useTheme';
 
 const generateStyle = (isActive: boolean) =>
@@ -12,8 +12,8 @@ export const Header = () => {
   return (
     <nav className='navbar navbar-expand-sm navbar-dark fixed-top py-1'>
       <div className='container'>
-        <Link className='navbar-brand' to={`${URL_BASE}/`}>
-          <span className='blueColorText h1'>Leo's pictograms test deploy</span>
+        <Link className='navbar-brand' to={`${URL_BASE_ROUTER}/`}>
+          <span className='blueColorText h1'>Leo's pictograms</span>
         </Link>
         <button
           className='navbar-toggler'
@@ -28,13 +28,19 @@ export const Header = () => {
         </button>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <div className='navbar-nav'>
-            <NavLink className='nav-item nav-link' to={`${URL_BASE}/photos`}>
+            <NavLink
+              className='nav-item nav-link'
+              to={`${URL_BASE_ROUTER}/photos`}
+            >
               {({ isActive }) => (
                 <span className={generateStyle(isActive)}>Photos</span>
               )}
             </NavLink>
 
-            <NavLink className='nav-item nav-link' to={`${URL_BASE}/cartoons`}>
+            <NavLink
+              className='nav-item nav-link'
+              to={`${URL_BASE_ROUTER}/cartoons`}
+            >
               {({ isActive }) => (
                 <span className={generateStyle(isActive)}>Cartoons</span>
               )}

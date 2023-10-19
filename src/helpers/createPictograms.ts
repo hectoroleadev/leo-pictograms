@@ -1,9 +1,12 @@
 import { Pictogram } from '../pictogram/interfaces';
 
 const initSufix = 1;
-export const URL_BASE = import.meta.env.BASE_URL || '';
 
-const imagesResurces = `${URL_BASE}/images`;
+export const URL_BASE = import.meta.env.BASE_URL || '';
+export const isHashRouter = import.meta.env.VITE_HASH_ROUTER !== 'true';
+export const URL_BASE_ROUTER = isHashRouter ? '' : URL_BASE;
+
+export const imagesResurces = `${URL_BASE}/images`;
 
 export const createPictograms = (
   prefix: string,

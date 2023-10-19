@@ -1,6 +1,4 @@
-import { URL_BASE } from '.';
-
-const imagesResurces = `${URL_BASE}/images`;
+import { imagesResurces } from '.';
 
 export const getDefaultImages = () => {
   const sunIcon = 'https://img.icons8.com/color/48/000000/sun.png';
