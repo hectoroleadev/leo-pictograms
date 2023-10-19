@@ -1,12 +1,16 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { CartoonPage, PictogramPage } from '../pictogram/pages';
+import { URL_BASE } from '../helpers/createPictograms';
 
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path='/photos' element={<PictogramPage />} />
-      <Route path='/cartoons' element={<CartoonPage />} />
-      <Route path='/*' element={<Navigate to='/photos' replace />} />
+      <Route path={`${URL_BASE}/photos`} element={<PictogramPage />} />
+      <Route path={`${URL_BASE}/cartoons`} element={<CartoonPage />} />
+      <Route
+        path={`${URL_BASE}/*`}
+        element={<Navigate to={`${URL_BASE}/photos`} replace />}
+      />
     </Routes>
   );
 };
