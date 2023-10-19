@@ -12,7 +12,7 @@ export const Header = () => {
   return (
     <nav className='navbar navbar-expand-sm navbar-dark fixed-top py-1'>
       <div className='container'>
-        <Link className='navbar-brand' to={`${URL_BASE}/`}>
+        <Link className='navbar-brand' to={`/`}>
           <span className='blueColorText h1'>Leo's pictograms</span>
         </Link>
         <button
@@ -28,13 +28,13 @@ export const Header = () => {
         </button>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <div className='navbar-nav'>
-            <NavLink className='nav-item nav-link' to={`${URL_BASE}/photos`}>
+            <NavLink className='nav-item nav-link' to={`/photos`}>
               {({ isActive }) => (
                 <span className={generateStyle(isActive)}>Photos</span>
               )}
             </NavLink>
 
-            <NavLink className='nav-item nav-link' to={`${URL_BASE}/cartoons`}>
+            <NavLink className='nav-item nav-link' to={`/cartoons`}>
               {({ isActive }) => (
                 <span className={generateStyle(isActive)}>Cartoons</span>
               )}
