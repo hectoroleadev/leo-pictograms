@@ -13,14 +13,12 @@ export const PictogramComponent = ({ pictogram, classColor }: Props) => {
   });
 
   return (
-    <div>
-      <img
-        onClick={onPictogramClick}
-        src={image}
-        alt={pictogram.name}
-        className='pictogram m-2 border rounded shadow img-fluid'
-        onError={onPictogramError}
-      />
-    </div>
+    <img
+      onClick={onPictogramClick}
+      src={image}
+      alt={pictogram.name}
+      className='pictogram m-2 rounded shadow img-fluid'
+      onError={onPictogramError}
+    />
   );
 };

@@ -13,7 +13,7 @@ export const Header = () => {
     <nav className='navbar navbar-expand-sm navbar-dark fixed-top py-1'>
       <div className='container'>
         <Link className='navbar-brand' to={`${URL_BASE}/`}>
-          <span className='blueColorText h1'>Leo's pictograms</span>
+          <span className='blueColorText h1'>Leo's pictograms test deploy</span>
         </Link>
         <button
           className='navbar-toggler'
