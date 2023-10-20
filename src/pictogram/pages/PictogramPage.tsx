@@ -16,3 +16,5 @@ export const PictogramPage = () => {
     </PictogramLayout>
   );
 };
+
+export default PictogramPage;
