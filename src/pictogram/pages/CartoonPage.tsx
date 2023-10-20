@@ -16,3 +16,5 @@ export const CartoonPage = () => {
     </PictogramLayout>
   );
 };
+
+export default CartoonPage;

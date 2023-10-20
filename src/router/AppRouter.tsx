@@ -1,43 +1,25 @@
 import {
   Navigate,
-  Route,
-  Routes,
   createBrowserRouter,
   createHashRouter,
 } from 'react-router-dom';
-import { CartoonPage, PictogramPage } from '../pictogram/pages';
 import { getEnvVariables } from '../helpers';
 
-const { URL_BASE_ROUTER, IS_HASH_ROUTER } = getEnvVariables();
+import { Route, defaultRoute, routes } from './';
 
-const routes = [
-  {
-    path: `${URL_BASE_ROUTER}/photos`,
-    element: <PictogramPage />,
-  },
-  {
-    path: `${URL_BASE_ROUTER}/cartoons`,
-    element: <CartoonPage />,
-  },
-  {
-    path: `${URL_BASE_ROUTER}/*`,
-    element: <Navigate to={`${URL_BASE_ROUTER}/photos`} replace />,
-  },
-];
+const { IS_HASH_ROUTER, URL_BASE_ROUTER } = getEnvVariables();
 
-export const AppRouter = () => {
-  return (
-    <Routes>
-      <Route path={`${URL_BASE_ROUTER}/photos`} element={<PictogramPage />} />
-      <Route path={`${URL_BASE_ROUTER}/cartoons`} element={<CartoonPage />} />
-      <Route
-        path={`${URL_BASE_ROUTER}/*`}
-        element={<Navigate to={`${URL_BASE_ROUTER}/photos`} replace />}
-      />
-    </Routes>
-  );
+export const router = () => {
+  const customRoutes: Route[] = [
+    ...routes,
+    {
+      path: `${URL_BASE_ROUTER}/*`,
+      to: 'undefined',
+      element: <Navigate to={defaultRoute.to} replace />,
+    },
+  ];
+
+  return IS_HASH_ROUTER
+    ? createHashRouter(customRoutes)
+    : createBrowserRouter(customRoutes);
 };
-
-export const router = IS_HASH_ROUTER
-  ? createHashRouter(routes)
-  : createBrowserRouter(routes);
