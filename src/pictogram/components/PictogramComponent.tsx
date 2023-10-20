@@ -13,7 +13,9 @@ export const PictogramComponent = ({ pictogram, classColor }: Props) => {
   });
 
   return (
-    <div className={`card ${classColor} my-2 shadow`}>
+    <div
+      className={`card ${classColor} my-2 shadow animate__animated animate__pulse`}
+    >
       <img
         onClick={onPictogramClick}
         src={image}

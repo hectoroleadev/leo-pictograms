@@ -48,24 +48,13 @@ body {
 
 .pictogram:hover,
 .themeIcon:hover {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .pictogramZoom {
   cursor: pointer;
-  animation-name: zoom;
-  animation-duration: 1s;
   border: 10px solid var(--border-color);
-}
-
-@keyframes zoom {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .orangeColor {
