@@ -10,9 +10,9 @@ export const PictogramZoomed = () => {
           className='d-flex justify-content-center modal'
           onClick={onClickImageZoomed}
         >
-          <div className='align-self-center'>
+          <div className='align-self-center animate__animated animate__zoomIn'>
             <img
-              className='pictogramZoom shadow rounded-4 my-2 img-fluid'
+              className='pictogramZoom shadow rounded-4 my-2 img-fluid '
               alt={'pictogramZoom'}
               src={pictogramZoomed}
               onClick={onClickImageZoomed}
