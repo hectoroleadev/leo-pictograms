@@ -6,7 +6,9 @@ import {
   createHashRouter,
 } from 'react-router-dom';
 import { CartoonPage, PictogramPage } from '../pictogram/pages';
-import { URL_BASE_ROUTER, isHashRouter } from '../helpers/createPictograms';
+import { getEnvVariables } from '../helpers';
+
+const { URL_BASE_ROUTER, IS_HASH_ROUTER } = getEnvVariables();
 
 const routes = [
   {
@@ -36,6 +38,6 @@ export const AppRouter = () => {
   );
 };
 
-export const router = isHashRouter
+export const router = IS_HASH_ROUTER
   ? createHashRouter(routes)
   : createBrowserRouter(routes);
