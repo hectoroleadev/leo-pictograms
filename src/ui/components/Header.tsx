@@ -1,6 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
-import { URL_BASE_ROUTER, getDefaultImages } from '../../helpers';
+import { getEnvVariables, getDefaultImages } from '../../helpers';
 import { useTheme } from '../hooks/useTheme';
+
+const { URL_BASE_ROUTER } = getEnvVariables();
 
 const generateStyle = (isActive: boolean) =>
   isActive ? 'purpleColorText' : 'blueColorText';

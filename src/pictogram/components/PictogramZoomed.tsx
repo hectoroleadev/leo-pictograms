@@ -12,7 +12,7 @@ export const PictogramZoomed = () => {
         >
           <div className='align-self-center'>
             <img
-              className='pictogramZoom shadow rounded img-fluid'
+              className='pictogramZoom shadow rounded-4 my-2 img-fluid'
               alt={'pictogramZoom'}
               src={pictogramZoomed}
               onClick={onClickImageZoomed}

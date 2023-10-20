@@ -14,7 +14,7 @@ export const PictogramLayout = ({ children }: Props) => {
       }}
     >
       <Header />
-      <section className='row justify-content-center align-items-start mx-1'>
+      <section className='row justify-content-center rows-cols-1 row-cols-md-3 row-cols-lg-6 g-4 mx-0'>
         <PictogramZoomed />
         {children}
       </section>
