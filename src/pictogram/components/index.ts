@@ -1,3 +1,4 @@
-export * from './PictogramComponent';
 export * from './PictogramColorList';
-export * from './PictogramZoomed';
+export * from './PictogramModal';
+export * from './PictogramImage';
+export * from './PictogramCard';

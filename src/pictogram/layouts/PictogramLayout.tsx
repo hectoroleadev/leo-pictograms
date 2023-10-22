@@ -1,5 +1,5 @@
 import { Footer, Header } from '../../ui/components';
-import { PictogramZoomed } from '../components';
+import { PictogramModal } from '../components';
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -10,9 +10,9 @@ export const PictogramLayout = ({ children }: Props) => {
     <div className='container-fluid'>
       <Header />
       <section className='row justify-content-center rows-cols-1 row-cols-md-3 row-cols-lg-6'>
-        <PictogramZoomed />
         {children}
       </section>
+      <PictogramModal />
       <Footer />
     </div>
   );
