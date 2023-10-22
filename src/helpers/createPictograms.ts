@@ -13,12 +13,12 @@ export const createPictograms = (
   let pictorgrams: Pictogram[] = [];
 
   for (let i = initSufix; i <= endSufix; i++) {
-    const imageSrc = `${imagesResurces}/${prefix}${i}.jpg`;
+    const image = `${imagesResurces}/${prefix}${i}.jpg`;
 
     pictorgrams.push({
       id: i,
       name: `${prefix}${i}`,
-      imageSrc,
+      image,
     });
   }
 

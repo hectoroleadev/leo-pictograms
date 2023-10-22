@@ -1,40 +1,29 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { getDefaultImages } from '../../helpers';
-import { zoomPictogram } from '../../store';
+import { OnClickArgs, Pictogram } from '../interfaces';
 
 interface Props {
-  classColor: string;
-  imageSrc?: string;
+  className?: string;
+  pictogram: Pictogram;
+  onClick?: (args: OnClickArgs) => void;
 }
 
-export const usePictogram = ({ imageSrc, classColor }: Props) => {
-  const [image, setImage] = useState(imageSrc);
-  const dispatch = useDispatch();
-  const { noImage } = getDefaultImages();
+const { noImage } = getDefaultImages();
 
-  const setBorderColorToImageZoomed = (classColor: string) => {
-    const element = document.querySelector(`.${classColor}`);
-
-    if (element) {
-      const style = getComputedStyle(element);
-      const elm = document.documentElement;
-      elm.style.setProperty('--border-color', style.backgroundColor);
-    }
-  };
+export const usePictogram = ({ pictogram, className = '', onClick }: Props) => {
+  const [imageState, setImageState] = useState(pictogram.image);
 
   const onPictogramClick = () => {
-    if (image === noImage) {
+    if (imageState === noImage) {
       return;
     }
 
-    setBorderColorToImageZoomed(classColor);
-    dispatch(zoomPictogram(image));
+    onClick && onClick({ pictogram, className });
   };
 
   return {
-    image,
+    imageState,
     onPictogramClick,
-    onPictogramError: () => setImage(noImage),
+    onPictogramClickError: () => setImageState(noImage),
   };
 };

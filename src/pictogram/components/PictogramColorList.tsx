@@ -1,7 +1,6 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
+import { usePictogramStore } from '../hooks';
 import { Pictogram } from '../interfaces';
-import { PictogramComponent } from '.';
+import { PictogramCard, PictogramImage } from './';
 
 interface PictogramColorListProps {
   classColor: string;
@@ -12,10 +11,8 @@ export const PictogramColorList = ({
   classColor,
   pictograms,
 }: PictogramColorListProps) => {
-  const pictogramZoomed = useSelector(
-    (state: RootState) => state.pictogram.pictogramZoomed
-  );
-  const filter = pictogramZoomed ? 'blur(2px) opacity(.3)' : 'none';
+  const { pictogramInModal, openPictogramModal } = usePictogramStore();
+  const filter = pictogramInModal ? 'blur(2px) opacity(.3)' : 'none';
 
   return (
     <div
@@ -24,11 +21,18 @@ export const PictogramColorList = ({
     >
       {pictograms.map((pictogram: Pictogram) => {
         return (
-          <PictogramComponent
+          <div
             key={pictogram.id}
-            pictogram={pictogram}
-            classColor={classColor}
-          />
+            className='my-2 shadow animate__animated animate__pulse'
+          >
+            <PictogramCard
+              pictogram={pictogram}
+              className={classColor}
+              onClick={openPictogramModal}
+            >
+              <PictogramImage image={pictogram.image} className='pictogram' />
+            </PictogramCard>
+          </div>
         );
       })}
     </div>
