@@ -1,12 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Pictogram } from '../../pictogram/interfaces';
 
-export interface PictogramInModal extends Pictogram {
-  className?: string;
-}
-
 export interface PictogramState {
-  pictogramInModal?: PictogramInModal;
+  pictogramInModal?: Pictogram;
 }
 
 const initialState: PictogramState = {
@@ -17,7 +13,7 @@ export const pictogramSlice = createSlice({
   name: 'pictogram',
   initialState,
   reducers: {
-    onOpenPictogramModal: (state, action: PayloadAction<PictogramInModal>) => {
+    onOpenPictogramModal: (state, action: PayloadAction<Pictogram>) => {
       state.pictogramInModal = action.payload;
     },
     onClosePictogramModal: (state) => {

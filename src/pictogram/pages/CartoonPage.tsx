@@ -1,19 +1,18 @@
 import { PictogramColorList } from '../components';
 import { createPictograms } from '../../helpers';
-import { PictogramLayout } from '../layouts/PictogramLayout';
-import { CARTOON_LIST } from '../../fixtures';
+import { GalleryLayout } from '../layouts';
+import { CARTOON_LIST } from '../../data';
 
 export const CartoonPage = () => {
   return (
-    <PictogramLayout>
-      {CARTOON_LIST.map(({ id, size, classColor, pictogramFolder }) => (
+    <GalleryLayout>
+      {CARTOON_LIST.map(({ id, size, pictogramFolder }) => (
         <PictogramColorList
           key={id}
           pictograms={createPictograms(pictogramFolder, size)}
-          classColor={classColor}
         />
       ))}
-    </PictogramLayout>
+    </GalleryLayout>
   );
 };
 

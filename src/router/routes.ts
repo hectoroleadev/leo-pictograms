@@ -14,11 +14,19 @@ export interface Route {
   element?: JSXElement;
 }
 
+const LazyPictogramPage = lazy(
+  () =>
+    import(
+      /* webpackChunkName: "LazyPictogramPage"  */
+      '../pictogram/pages/PictogramPage'
+    )
+);
+
 const LazyPhotoPage = lazy(
   () =>
     import(
       /* webpackChunkName: "LazyPhotoPage"  */
-      '../pictogram/pages/PictogramPage'
+      '../pictogram/pages/PhotoPage'
     )
 );
 
@@ -31,6 +39,12 @@ const LazyCartoonPage = lazy(
 );
 
 export const routes: Route[] = [
+  {
+    path: `${URL_BASE_ROUTER}/`,
+    to: `${URL_BASE_ROUTER}/`,
+    Component: LazyPictogramPage,
+    name: 'Home',
+  },
   {
     path: `${URL_BASE_ROUTER}/photos`,
     to: `${URL_BASE_ROUTER}/photos`,
