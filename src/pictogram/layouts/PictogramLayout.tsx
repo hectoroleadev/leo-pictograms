@@ -33,22 +33,16 @@ export const PictogramLayout = ({ children }: Props) => {
         </header>
       </div>
       <div className='d-block d-sm-none'>
-        <nav className='nav justify-content-center '>
+        <nav className='nav justify-content-center'>
           <a className='nav-link active' aria-current='page' href='#'>
             Active
           </a>
           <a className='nav-link' href='#'>
             Link
           </a>
-          <a className='nav-link' href='#'>
-            Link
-          </a>
-          <a className='nav-link disabled'>Disabled</a>
         </nav>
       </div>
-      <section className='row justify-content-evenly rows-cols-1 row-cols-md-3 row-cols-lg-6 p-2'>
-        {children}
-      </section>
+      <section className='row justify-content-center px-5'>{children}</section>
       <PictogramModal />
     </MainLayout>
   );
