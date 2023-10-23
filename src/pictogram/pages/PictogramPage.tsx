@@ -9,20 +9,23 @@ export const PictogramPage = () => {
   return (
     <PictogramLayout>
       {pictograms.map((pictogram) => (
-        <PictogramCard
-          key={pictogram.id}
-          pictogram={pictogram}
-          className={`p-2 m-2 ms-0`}
-          style={{
-            backgroundColor: pictogram.backgroundColor,
-            cursor: 'pointer',
-            filter,
-          }}
-          onClick={openPictogramModal}
+        <div
+          className={'col-6 col-sm-4 col-lg-3 mx-0 px-1 rounded-2 mb-2'}
+          style={{ filter, cursor: 'pointer' }}
         >
-          <PictogramImage />
-          <PictogramTitle className='h3 bg-light rounded-3 mt-2' />
-        </PictogramCard>
+          <PictogramCard
+            key={pictogram.id}
+            pictogram={pictogram}
+            className={`p-2 m-0 ms-1`}
+            style={{
+              backgroundColor: pictogram.backgroundColor,
+            }}
+            onClick={openPictogramModal}
+          >
+            <PictogramImage />
+            <PictogramTitle className='h3 bg-light rounded-3 mt-2' />
+          </PictogramCard>
+        </div>
       ))}
     </PictogramLayout>
   );
