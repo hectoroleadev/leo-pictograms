@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import { getDefaultImages } from '../../helpers';
+import { useContext, useEffect, useState } from 'react';
 import { PictogramContext } from './PictogramCard';
+import { getDefaultImages } from '../../helpers';
 
 interface Props {
   className?: string;
@@ -10,31 +10,25 @@ interface Props {
 const { noImage } = getDefaultImages();
 
 export const PictogramImage = ({ image, className = '' }: Props) => {
-  const {
-    pictogram,
-    imageState = '',
-    onPictogramClick,
-    onPictogramClickError,
-  } = useContext(PictogramContext);
-  let imageToShow: string;
+  const { pictogram, onPictogramClick, onPictogramClickError } =
+    useContext(PictogramContext);
 
-  if (image) {
-    imageToShow = image;
-  } else if (pictogram.image) {
-    imageToShow = pictogram.image;
-  } else {
-    imageToShow = noImage;
-  }
+  const [imageToShow, setImageToShow] = useState(
+    image ? image : pictogram.image
+  );
 
-  console.log(imageToShow);
+  const onError = () => {
+    setImageToShow(noImage);
+    onPictogramClickError();
+  };
 
   return (
     <img
       onClick={onPictogramClick}
-      src={imageState}
+      src={imageToShow}
       alt={pictogram.name}
-      className={`${className} m-2 rounded-2 img-fluid border border-1`}
-      onError={onPictogramClickError}
+      className={`${className} m-2 rounded-2 img-fluid`}
+      onError={onError}
     />
   );
 };

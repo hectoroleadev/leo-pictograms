@@ -11,7 +11,9 @@ export interface Props {
   onClick?: (args: OnClickArgs) => void;
 }
 
-export const PictogramContext = createContext({} as PictogramContextProps);
+export const PictogramContext = createContext<PictogramContextProps>(
+  {} as PictogramContextProps
+);
 const { Provider } = PictogramContext;
 
 export const PictogramCard = ({
@@ -21,16 +23,13 @@ export const PictogramCard = ({
   style,
   onClick,
 }: Props) => {
-  const { onPictogramClick, onPictogramClickError, imageState } = usePictogram({
+  const { onPictogramClick, onPictogramClickError } = usePictogram({
     pictogram,
-    className,
     onClick,
   });
 
   return (
-    <Provider
-      value={{ pictogram, imageState, onPictogramClick, onPictogramClickError }}
-    >
+    <Provider value={{ pictogram, onPictogramClick, onPictogramClickError }}>
       <div className={`card ${className}`} style={style}>
         {children}
       </div>

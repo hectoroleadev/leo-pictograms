@@ -3,14 +3,10 @@ import { Pictogram } from '../interfaces';
 import { PictogramCard, PictogramImage } from './';
 
 interface PictogramColorListProps {
-  classColor: string;
   pictograms: Pictogram[];
 }
 
-export const PictogramColorList = ({
-  classColor,
-  pictograms,
-}: PictogramColorListProps) => {
+export const PictogramColorList = ({ pictograms }: PictogramColorListProps) => {
   const { pictogramInModal, openPictogramModal } = usePictogramStore();
   const filter = pictogramInModal ? 'blur(2px) opacity(.3)' : 'none';
 
@@ -19,22 +15,24 @@ export const PictogramColorList = ({
       className={`col-sm-2 col-4 mx-0 px-1 rounded-2 mb-2`}
       style={{ filter }}
     >
-      {pictograms.map((pictogram: Pictogram) => {
-        return (
-          <div
-            key={pictogram.id}
-            className='my-2 shadow animate__animated animate__pulse'
+      {pictograms.map((pictogram: Pictogram) => (
+        <div
+          key={pictogram.id}
+          className='shadow animate__animated animate__pulse mb-2'
+        >
+          <PictogramCard
+            pictogram={pictogram}
+            className={!pictogram.backgroundColor ? 'bg-transparent' : ''}
+            style={{ backgroundColor: pictogram.backgroundColor }}
+            onClick={openPictogramModal}
           >
-            <PictogramCard
-              pictogram={pictogram}
-              className={classColor}
-              onClick={openPictogramModal}
-            >
-              <PictogramImage image={pictogram.image} className='pictogram' />
-            </PictogramCard>
-          </div>
-        );
-      })}
+            <PictogramImage
+              image={pictogram.image}
+              className='pictogram border border-1'
+            />
+          </PictogramCard>
+        </div>
+      ))}
     </div>
   );
 };

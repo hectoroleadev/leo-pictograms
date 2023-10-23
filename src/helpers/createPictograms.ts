@@ -8,7 +8,8 @@ export const imagesResurces = `${BASE_URL}/images`;
 
 export const createPictograms = (
   prefix: string,
-  endSufix: number
+  endSufix: number,
+  backgroundColor?: string
 ): Pictogram[] => {
   let pictorgrams: Pictogram[] = [];
 
@@ -19,8 +20,13 @@ export const createPictograms = (
       id: i,
       name: `${prefix}${i}`,
       image,
+      backgroundColor: backgroundColor ? backgroundColor : 'transparent',
     });
   }
 
   return pictorgrams;
+};
+
+export const getImageResource = (pictogramFile: string) => {
+  return `${imagesResurces}/pictograms/${pictogramFile}`;
 };

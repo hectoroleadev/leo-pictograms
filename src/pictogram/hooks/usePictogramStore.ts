@@ -12,8 +12,8 @@ export const usePictogramStore = () => {
     (state: RootState) => state.pictogram
   );
 
-  const openPictogramModal = ({ pictogram, className }: OnClickArgs) => {
-    dispatch(onOpenPictogramModal({ ...pictogram, className }));
+  const openPictogramModal = ({ pictogram }: OnClickArgs) => {
+    dispatch(onOpenPictogramModal({ ...pictogram }));
   };
 
   const closePictogramModal = () => {

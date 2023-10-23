@@ -14,12 +14,14 @@ export const PictogramModal = () => {
           <div className='align-self-center animate__animated animate__zoomIn'>
             <PictogramCard
               pictogram={pictogramInModal}
-              className={pictogramInModal.className}
               onClick={closePictogramModal}
+              style={{
+                backgroundColor: pictogramInModal.backgroundColor,
+              }}
             >
               <PictogramImage
                 image={pictogramInModal.image}
-                className='pictogramZoom'
+                className='pictogramZoom border border-1'
               />
             </PictogramCard>
           </div>
