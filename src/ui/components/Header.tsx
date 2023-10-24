@@ -6,8 +6,9 @@ import { Route, defaultRoute, routes } from '../../router';
 const generateStyle = (isActive: boolean) =>
   isActive ? 'purpleColorText' : 'blueColorText';
 
+const { moonIcon, sunIcon } = getDefaultImages();
+
 export const Header = () => {
-  const { moonIcon, sunIcon } = getDefaultImages();
   const { isDarkTheme, toggleThemeChange } = useTheme();
 
   return (
@@ -43,11 +44,6 @@ export const Header = () => {
               alt='theme mode'
               src={isDarkTheme ? sunIcon : moonIcon}
               className='themeIcon'
-              data-bs-toggle='tooltip'
-              data-bs-placement='left'
-              data-bs-trigger='hover'
-              data-bs-title='<span class="blueColorText gochiHandFontFamily">Switch Between Themes</span>'
-              data-bs-html='true'
             />
           </div>
         </div>

@@ -1,32 +1,49 @@
-import { pictograms } from '../../data';
+import { Navigate, useParams } from 'react-router-dom';
+import { getEnvVariables, getPictogramsBySectionId } from '../../helpers';
 import { PictogramCard, PictogramImage, PictogramTitle } from '../components';
-import { usePictogramStore } from '../hooks';
+import { PictogramNavBar } from '../components/PictogramNavBar';
+import { usePictogram, usePictogramStore } from '../hooks';
+
 import { PictogramLayout } from '../layouts';
 
+const { URL_BASE_ROUTER } = getEnvVariables();
+
 export const PictogramPage = () => {
+  const { id = '' } = useParams();
   const { pictogramInModal, openPictogramModal } = usePictogramStore();
   const filter = pictogramInModal ? 'blur(2px) opacity(.3)' : 'none';
+  const initialState = getPictogramsBySectionId(id);
+
+  if (!initialState) {
+    return <Navigate to={URL_BASE_ROUTER} />;
+  }
+
+  const { pictograms, onClickSection } = usePictogram(initialState);
+
   return (
     <PictogramLayout>
-      {pictograms.map((pictogram) => (
-        <div
-          className={'col-6 col-sm-4 col-lg-3 mx-0 px-1 rounded-2 mb-2'}
-          style={{ filter, cursor: 'pointer' }}
-        >
-          <PictogramCard
+      <>
+        <PictogramNavBar onClick={onClickSection} />
+        {pictograms.map((pictogram) => (
+          <div
             key={pictogram.id}
-            pictogram={pictogram}
-            className={`p-2 m-0 ms-1`}
-            style={{
-              backgroundColor: pictogram.backgroundColor,
-            }}
-            onClick={openPictogramModal}
+            className={'col-4 col-lg-3 mx-0 px-1 rounded-2 mb-2'}
+            style={{ filter }}
           >
-            <PictogramImage />
-            <PictogramTitle className='h3 bg-light rounded-3 mt-2' />
-          </PictogramCard>
-        </div>
-      ))}
+            <PictogramCard
+              pictogram={pictogram}
+              className={`p-2 m-1`}
+              style={{
+                backgroundColor: pictogram.backgroundColor,
+              }}
+              onClick={openPictogramModal}
+            >
+              <PictogramImage className='pictogram' />
+              <PictogramTitle className='h3 bg-light rounded-3 mt-2' />
+            </PictogramCard>
+          </div>
+        ))}
+      </>
     </PictogramLayout>
   );
 };

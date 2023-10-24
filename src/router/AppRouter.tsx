@@ -6,6 +6,7 @@ import {
 import { getEnvVariables } from '../helpers';
 
 import { Route, defaultRoute, routes } from './';
+import { ErrorPage } from '../ui';
 
 const { IS_HASH_ROUTER, URL_BASE_ROUTER } = getEnvVariables();
 
@@ -18,6 +19,8 @@ export const router = () => {
       element: <Navigate to={defaultRoute.to} replace />,
     },
   ];
+
+  customRoutes[0].errorElement = <ErrorPage />;
 
   return IS_HASH_ROUTER
     ? createHashRouter(customRoutes)

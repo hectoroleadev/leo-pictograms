@@ -1,5 +1,5 @@
 import { CSSProperties, ReactElement, createContext } from 'react';
-import { usePictogram } from '../hooks';
+import { usePictogramCard } from '../hooks';
 import { Pictogram, PictogramContextProps } from '../interfaces';
 import { OnClickArgs } from '../interfaces/interfaces';
 
@@ -23,7 +23,7 @@ export const PictogramCard = ({
   style,
   onClick,
 }: Props) => {
-  const { onPictogramClick, onPictogramClickError } = usePictogram({
+  const { onPictogramClick, onPictogramClickError } = usePictogramCard({
     pictogram,
     onClick,
   });

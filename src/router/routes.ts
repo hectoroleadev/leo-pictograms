@@ -12,6 +12,7 @@ export interface Route {
   Component?: LazyExoticComponent<JSXComponent> | JSXComponent;
   name?: string;
   element?: JSXElement;
+  errorElement?: JSXElement;
 }
 
 const LazyPictogramPage = lazy(
@@ -40,10 +41,10 @@ const LazyCartoonPage = lazy(
 
 export const routes: Route[] = [
   {
-    path: `${URL_BASE_ROUTER}/`,
-    to: `${URL_BASE_ROUTER}/`,
+    path: `${URL_BASE_ROUTER}/:id`,
+    to: `${URL_BASE_ROUTER}/1`,
     Component: LazyPictogramPage,
-    name: 'Home',
+    name: 'Pictograms',
   },
   {
     path: `${URL_BASE_ROUTER}/photos`,

@@ -6,4 +6,8 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   base: '/leo-pictograms',
   plugins: [react(), VitePWA()],
+  preview: {
+    port: 8080,
+    open: true,
+  },
 });
