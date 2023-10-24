@@ -67,74 +67,142 @@ export const CARTOON_LIST = [
   },
 ];
 
-const pictogram: Pictogram = {
-  id: 1,
-  name: 'Activity 1',
-  image: getPictogramResource('clean-up-time'),
-  backgroundColor: '#4e93af',
-};
+export interface PictogramSection {
+  section: Pictogram;
+  pictograms: Pictogram[];
+}
 
-const pictogram2: Pictogram = {
-  id: 2,
-  name: 'Activity 2',
-  image: getPictogramResource('craft-time'),
-  backgroundColor: '#4e93af',
-};
-
-const pictogram3: Pictogram = {
-  id: 3,
-  name: 'Activity 3',
-  image: getPictogramResource('drawing'),
-  backgroundColor: '#4e93af',
-};
-
-const pictogramsList: Pictogram[] = [
+export const pictogramsList: PictogramSection[] = [
   {
-    id: 4,
-    name: 'Activity 3',
-    image: getPictogramResource('free-choice'),
-    backgroundColor: '#4e93af',
+    section: {
+      id: '1',
+      name: 'Activity 1',
+      image: getPictogramResource('craft-time'),
+      backgroundColor: '#4e93af',
+    },
+    pictograms: [
+      {
+        id: '1',
+        name: 'Activity 1',
+        image: getPictogramResource('clean-up-time'),
+        backgroundColor: '#4e93af',
+      },
+      {
+        id: '2',
+        name: 'Activity 3',
+        image: getPictogramResource('craft-time'),
+        backgroundColor: '#4e93af',
+      },
+      {
+        id: '3',
+        name: 'Activity 3',
+        image: getPictogramResource('drawing'),
+        backgroundColor: '#4e93af',
+      },
+      {
+        id: '4',
+        name: 'Activity 3',
+        image: getPictogramResource('free-choice'),
+        backgroundColor: '#4e93af',
+      },
+      {
+        id: '5',
+        name: 'Activity 3',
+        image: getPictogramResource('game-time'),
+        backgroundColor: '#4e93af',
+      },
+      {
+        id: '6',
+        name: 'Activity 3',
+        image: getPictogramResource('relax'),
+        backgroundColor: '#4e93af',
+      },
+      {
+        id: '7',
+        name: 'Activity 3',
+        image: getPictogramResource('science'),
+        backgroundColor: '#4e93af',
+      },
+      {
+        id: '8',
+        name: 'Activity 3',
+        image: getPictogramResource('special-jobs'),
+        backgroundColor: '#4e93af',
+      },
+      {
+        id: '9',
+        name: 'Activity 3',
+        image: getPictogramResource('toilet-brake'),
+        backgroundColor: '#4e93af',
+      },
+    ],
   },
   {
-    id: 5,
-    name: 'Activity 3',
-    image: getPictogramResource('game-time'),
-    backgroundColor: '#4e93af',
-  },
-  {
-    id: 6,
-    name: 'Activity 3',
-    image: getPictogramResource('relax'),
-    backgroundColor: '#4e93af',
-  },
-  {
-    id: 7,
-    name: 'Activity 3',
-    image: getPictogramResource('science'),
-    backgroundColor: '#4e93af',
-  },
-  {
-    id: 8,
-    name: 'Activity 3',
-    image: getPictogramResource('special-jobs'),
-    backgroundColor: '#4e93af',
-  },
-  {
-    id: 9,
-    name: 'Activity 3',
-    image: getPictogramResource('toilet-brake'),
-    backgroundColor: '#4e93af',
+    section: {
+      id: '2',
+      name: 'Activity 2',
+      image: getPictogramResource('t-shirt'),
+      backgroundColor: '#c9e265',
+    },
+    pictograms: [
+      {
+        id: '10',
+        name: 'Activity 1',
+        image: getPictogramResource('t-shirt'),
+        backgroundColor: '#c9e265',
+      },
+      {
+        id: '11',
+        name: 'Activity 3',
+        image: getPictogramResource('jeans'),
+        backgroundColor: '#c9e265',
+      },
+      {
+        id: '12',
+        name: 'Activity 3',
+        image: getPictogramResource('scarf'),
+        backgroundColor: '#c9e265',
+      },
+      {
+        id: '13',
+        name: 'Activity 3',
+        image: getPictogramResource('shorts'),
+        backgroundColor: '#c9e265',
+      },
+      {
+        id: '14',
+        name: 'Activity 3',
+        image: getPictogramResource('socks'),
+        backgroundColor: '#c9e265',
+      },
+      {
+        id: '15',
+        name: 'Activity 3',
+        image: getPictogramResource('sunnies'),
+        backgroundColor: '#c9e265',
+      },
+      {
+        id: '16',
+        name: 'Activity 3',
+        image: getPictogramResource('sweater'),
+        backgroundColor: '#c9e265',
+      },
+      {
+        id: '17',
+        name: 'Activity 3',
+        image: getPictogramResource('trousers'),
+        backgroundColor: '#c9e265',
+      },
+      {
+        id: '18',
+        name: 'Activity 3',
+        image: getPictogramResource('tie'),
+        backgroundColor: '#c9e265',
+      },
+    ],
   },
 ];
 
-export const pictogramSections: Pictogram[] = [
-  pictogram,
-  pictogram2,
-  pictogram3,
-];
-export const pictograms: Pictogram[] = [
-  pictogram,
-  pictogram2,
-  pictogram3,
-  ...pictogramsList,
-];
+export const pictogramSections: Pictogram[] = pictogramsList.map(
+  (pictogram) => pictogram.section
+);

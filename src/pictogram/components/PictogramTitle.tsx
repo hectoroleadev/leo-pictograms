@@ -18,5 +18,9 @@ export const PictogramTitle = ({ title, className = '' }: Props) => {
     titleToShow = undefined;
   }
 
-  return <div className={`text-center ${className}`}>{titleToShow}</div>;
+  return (
+    <div className={`text-truncate text-center ${className}`}>
+      {titleToShow}
+    </div>
+  );
 };

@@ -17,7 +17,7 @@ export const createPictograms = (
     const image = `${imagesResurces}/${prefix}${i}.jpg`;
 
     pictorgrams.push({
-      id: i,
+      id: i.toString(),
       name: `${prefix}${i}`,
       image,
       backgroundColor: backgroundColor ? backgroundColor : 'transparent',
