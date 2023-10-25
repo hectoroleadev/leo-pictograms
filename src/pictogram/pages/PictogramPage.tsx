@@ -5,6 +5,7 @@ import { PictogramNavBar } from '../components/PictogramNavBar';
 import { usePictogram, usePictogramStore } from '../hooks';
 
 import { PictogramLayout } from '../layouts';
+import { useMemo } from 'react';
 
 const { URL_BASE_ROUTER } = getEnvVariables();
 
@@ -12,7 +13,7 @@ export const PictogramPage = () => {
   const { id = '' } = useParams();
   const { pictogramInModal, openPictogramModal } = usePictogramStore();
   const filter = pictogramInModal ? 'blur(2px) opacity(.3)' : 'none';
-  const initialState = getPictogramsBySectionId(id);
+  const initialState = useMemo(() => getPictogramsBySectionId(id), [id]);
 
   if (!initialState) {
     return <Navigate to={URL_BASE_ROUTER} />;
@@ -36,7 +37,7 @@ export const PictogramPage = () => {
               style={{
                 backgroundColor: pictogram.backgroundColor,
               }}
-              onClick={openPictogramModal}
+              onClick={() => openPictogramModal({ pictogram })}
             >
               <PictogramImage className='pictogram' />
               <PictogramTitle className='h3 bg-light rounded-3 mt-2' />

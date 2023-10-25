@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { OnClickArgs, Pictogram } from '../interfaces';
-import { getEnvVariables, getPictogramsBySectionId } from '../../helpers';
 import { useNavigate } from 'react-router-dom';
+import { getEnvVariables, getPictogramsBySectionId } from '../../helpers';
+import { Pictogram } from '../interfaces';
 
 const { URL_BASE_ROUTER } = getEnvVariables();
 
 export const usePictogram = (initialState: Pictogram[]) => {
   const navigate = useNavigate();
   const [pictograms, setPictograms] = useState<Pictogram[]>(initialState);
-  const onClickSection = ({ pictogram }: OnClickArgs) => {
-    const pictograms = getPictogramsBySectionId(pictogram.id);
 
-    navigate(`${URL_BASE_ROUTER}/${pictogram.id}`);
+  const onClickSection = (id: string) => {
+    const pictograms = getPictogramsBySectionId(id);
+
+    navigate(`${URL_BASE_ROUTER}/${id}`);
 
     setPictograms(pictograms ? pictograms : []);
   };

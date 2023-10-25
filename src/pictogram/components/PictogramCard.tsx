@@ -8,7 +8,7 @@ export interface Props {
   children?: ReactElement | ReactElement[];
   className?: string;
   style?: CSSProperties;
-  onClick?: (args: OnClickArgs) => void;
+  onClick?: (args: OnClickArgs | string) => void;
 }
 
 export const PictogramContext = createContext<PictogramContextProps>(

@@ -1,10 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
-import { getDefaultImages } from '../../helpers';
+import { generateActiveStyle, getDefaultImages } from '../../helpers';
 import { useTheme } from '../hooks/useTheme';
 import { Route, defaultRoute, routes } from '../../router';
-
-const generateStyle = (isActive: boolean) =>
-  isActive ? 'purpleColorText' : 'blueColorText';
 
 const { moonIcon, sunIcon } = getDefaultImages();
 
@@ -33,7 +30,7 @@ export const Header = () => {
             {routes.map(({ to, name }: Route) => (
               <NavLink key={to} className='nav-item nav-link' to={to}>
                 {({ isActive }) => (
-                  <span className={generateStyle(isActive)}>{name}</span>
+                  <span className={generateActiveStyle(isActive)}>{name}</span>
                 )}
               </NavLink>
             ))}

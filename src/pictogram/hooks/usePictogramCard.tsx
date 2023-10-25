@@ -4,7 +4,7 @@ import { OnClickArgs, Pictogram } from '../interfaces';
 
 interface Props {
   pictogram: Pictogram;
-  onClick?: (args: OnClickArgs) => void;
+  onClick?: (args: OnClickArgs | string) => void;
 }
 
 const { noImage } = getDefaultImages();
@@ -17,7 +17,9 @@ export const usePictogramCard = ({ pictogram, onClick }: Props) => {
       return;
     }
 
-    onClick && onClick({ pictogram });
+    onClick && onClick.name === 'openPictogramModal'
+      ? onClick({ pictogram })
+      : onClick?.(pictogram.id);
   };
 
   const onPictogramClickError = () => {
