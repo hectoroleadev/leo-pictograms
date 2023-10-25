@@ -24,7 +24,7 @@ export const PictogramColorList = ({ pictograms }: PictogramColorListProps) => {
             pictogram={pictogram}
             className={!pictogram.backgroundColor ? 'bg-transparent' : ''}
             style={{ backgroundColor: pictogram.backgroundColor }}
-            onClick={openPictogramModal}
+            onClick={() => openPictogramModal({ pictogram })}
           >
             <PictogramImage
               image={pictogram.image}
