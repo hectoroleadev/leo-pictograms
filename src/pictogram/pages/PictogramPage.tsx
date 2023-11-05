@@ -28,7 +28,7 @@ export const PictogramPage = () => {
         {pictograms.map((pictogram) => (
           <div
             key={pictogram.id}
-            className={'col-4 col-lg-3 mx-0 px-1 rounded-2 mb-2'}
+            className='col-4 col-lg-3 mx-0 px-1 rounded-2 mb-2 animate__animated animate__pulse'
             style={{ filter }}
           >
             <PictogramCard
