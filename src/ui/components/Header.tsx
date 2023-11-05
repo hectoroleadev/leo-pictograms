@@ -9,8 +9,8 @@ export const Header = () => {
   const { isDarkTheme, toggleThemeChange } = useTheme();
 
   return (
-    <nav className='navbar navbar-expand-sm navbar-dark fixed-top py-1'>
-      <div className='container'>
+    <nav className='navbar navbar-expand-sm navbar-dark fixed-top py-2'>
+      <div className='container-fluid'>
         <Link className='navbar-brand' to={defaultRoute.to}>
           <span className='blueColorText h1'>Leo's pictograms</span>
         </Link>

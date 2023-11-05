@@ -8,7 +8,7 @@ interface Props {
 export const GalleryLayout = ({ children }: Props) => {
   return (
     <MainLayout>
-      <section className='row justify-content-center rows-cols-1 row-cols-md-3 row-cols-lg-6 pt-2'>
+      <section className='row justify-content-center rows-cols-1 row-cols-md-3 row-cols-lg-6'>
         {children}
       </section>
       <PictogramModal />

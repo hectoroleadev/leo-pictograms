@@ -139,3 +139,7 @@ body {
 .navbar-toggler {
   background-color: var(--purple-color);
 }
+
+.pictogram-section-active {
+  box-shadow: 2px 2px 5px var(--blue-color);
+}
