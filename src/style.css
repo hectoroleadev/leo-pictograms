@@ -136,6 +136,12 @@ body {
   background: var(--primary-color);
 }
 
+.footer {
+  opacity: 0.9;
+  background: var(--primary-color);
+  text-align: center;
+}
+
 .navbar-toggler {
   background-color: var(--purple-color);
 }

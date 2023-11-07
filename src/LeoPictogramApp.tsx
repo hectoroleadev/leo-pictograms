@@ -6,22 +6,12 @@ import './style.css';
 import { router } from './router';
 import { store } from './store/store';
 import { Suspense } from 'react';
+import { Spinner } from './ui';
 
 const LeoPictogramApp = () => {
   return (
     <Provider store={store}>
-      <Suspense
-        fallback={
-          <div
-            className='d-flex min-vh-100 text-center 
-                 align-items-center justify-content-center'
-          >
-            <div className='spinner-border' role='status'>
-              <span className='visually-hidden'>Loading...</span>
-            </div>
-          </div>
-        }
-      >
+      <Suspense fallback={<Spinner />}>
         <RouterProvider router={router()} />
       </Suspense>
     </Provider>
