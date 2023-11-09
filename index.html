@@ -32,6 +32,13 @@
 <body>
   <div id="root"></div>
   <script type="module" src="src/main.tsx"></script>
+  <script>
+    var isProduction = ('%MODE%' === 'production')
+
+    if (isProduction && 'serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+    }
+  </script>
 </body>
 
 </html>
