@@ -7,23 +7,24 @@
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Leo pictograms" />
   <link rel="icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="%VITE_STORAGE_URL%/leo-pictograms/icons/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="%VITE_STORAGE_URL%/leo-pictograms/icons/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="%VITE_STORAGE_URL%/leo-pictograms/icons/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="%VITE_STORAGE_URL%/leo-pictograms/icons/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="%VITE_STORAGE_URL%/leo-pictograms/icons/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="%VITE_STORAGE_URL%/leo-pictograms/icons/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="%VITE_STORAGE_URL%/leo-pictograms/icons/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="%VITE_STORAGE_URL%/leo-pictograms/icons/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="%VITE_STORAGE_URL%/leo-pictograms/icons/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="%VITE_STORAGE_URL%/leo-pictograms/icons/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="%VITE_STORAGE_URL%/leo-pictograms/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="%VITE_STORAGE_URL%/leo-pictograms/icons/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="%VITE_STORAGE_URL%/leo-pictograms/icons/favicon-16x16.png" />
   <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png" />
+  <meta name="msapplication-TileImage" content="%VITE_STORAGE_URL%/leo-pictograms/icons/ms-icon-144x144.png" />
   <meta name="msapplication-config" content="/browserconfig.xml" />
   <meta name="theme-color" content="#ffffff" />
   <title>Leo's Pictograms</title>
@@ -34,6 +35,7 @@
   <script type="module" src="src/main.tsx"></script>
   <script>
     var isProduction = ('%MODE%' === 'production')
+
 
     if (isProduction && 'serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')

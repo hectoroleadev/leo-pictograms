@@ -8,5 +8,6 @@ export const getEnvVariables = () => {
     BASE_URL,
     IS_HASH_ROUTER,
     URL_BASE_ROUTER: IS_HASH_ROUTER ? '' : BASE_URL,
+    STORAGE_URL: import.meta.env.VITE_STORAGE_URL,
   };
 };

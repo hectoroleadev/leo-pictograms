@@ -2,9 +2,9 @@ import { Pictogram } from '../pictogram/interfaces';
 import { getEnvVariables } from './getEnvVariables';
 
 const initSufix = 1;
-const { BASE_URL } = getEnvVariables();
+const { STORAGE_URL } = getEnvVariables();
 
-export const imagesResurces = `${BASE_URL}/images`;
+export const imagesResurces = `${STORAGE_URL}/leo-pictograms`;
 
 export const createPictograms = (
   prefix: string,
