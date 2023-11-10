@@ -9,6 +9,7 @@ const cacheFirstRoutes = [
   'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css',
   'https://img.icons8.com/color/48/000000/',
   'https://fonts.googleapis.com',
+  'https://storage.hectorolea.dev/leo-pictograms',
 ];
 
 precacheAndRoute(self.__WB_MANIFEST);
